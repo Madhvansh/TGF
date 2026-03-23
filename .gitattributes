@@ -1,0 +1,21 @@
+# Force all text files to LF in repo
+* text=auto eol=lf
+
+# Python
+*.py text eol=lf
+
+# JSON
+*.json text eol=lf
+
+# CSV
+*.csv text eol=lf
+
+# Markdown
+*.md text eol=lf
+
+# Shell scripts (VERY important)
+*.sh text eol=lf
+
+# Windows scripts
+*.bat text eol=crlf
+*.ps1 text eol=crlf

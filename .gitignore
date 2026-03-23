@@ -1,0 +1,44 @@
+# Virtual environment
+.venv/
+env/
+venv/
+# Python cache
+__pycache__/
+*.pyc
+
+# ML models
+*.pt
+*.pth
+*.h5
+
+best_cooling_tower_model.pth
+#best_vtt_model.pth
+cooling_tower_report.txt
+temp.py
+
+
+# Large outputs
+*.csv
+*.json
+
+# Checkpoints
+checkpoints/
+moment_tgf_output/
+moment_tgf_output/
+moment_output/
+*.pt
+*.pth
+
+# IDE
+.idea/
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db*.pt
+moment_outputs/
+*.pt
+*.pth
+moment_outputs/
+*.pt
+*.pth

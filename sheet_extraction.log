@@ -1,0 +1,403 @@
+2025-11-19 17:52:23,676 - INFO - Found 81 Excel workbooks to process
+2025-11-19 17:52:23,677 - INFO - ======================================================================
+2025-11-19 17:52:24,176 - INFO - 
+Processing: DCM    NEW CT Report -AUG 2024 to AUG 2025.xlsx
+2025-11-19 17:52:24,176 - INFO - Available sheets: ['MakeUp', 'New CT PH Process', 'CT Parameter Graphs']
+2025-11-19 17:52:24,176 - INFO - Candidate sheets after Layer 1: ['CT Parameter Graphs']
+2025-11-19 17:52:24,219 - WARNING - No sheets passed validation in DCM    NEW CT Report -AUG 2024 to AUG 2025.xlsx
+2025-11-19 17:52:24,271 - INFO - 
+Processing: DCM   ECH CT - SEPT 2024 to AUG-2025.xlsx
+2025-11-19 17:52:24,272 - INFO - Available sheets: ['MakeUp', 'ECH CT PH Process', 'CT Parameter Graphs']
+2025-11-19 17:52:24,272 - INFO - Candidate sheets after Layer 1: ['CT Parameter Graphs']
+2025-11-19 17:52:24,306 - WARNING - No sheets passed validation in DCM   ECH CT - SEPT 2024 to AUG-2025.xlsx
+2025-11-19 17:52:24,349 - INFO - 
+Processing: DCM  OLD CT Report - AUG 2024 To AUG 2025.xlsx
+2025-11-19 17:52:24,350 - INFO - Available sheets: ['MakeUp', 'OLD CT PH Process', 'CT Parameter Graphs']
+2025-11-19 17:52:24,351 - INFO - Candidate sheets after Layer 1: ['CT Parameter Graphs']
+2025-11-19 17:52:24,388 - WARNING - No sheets passed validation in DCM  OLD CT Report - AUG 2024 To AUG 2025.xlsx
+2025-11-19 17:52:24,429 - INFO - 
+Processing: DCM 850 CT TPD Report - AUG 2024 to AUG 2025.xlsx
+2025-11-19 17:52:24,431 - INFO - Available sheets: ['MakeUp', 'NEW CT 850 TPD  PH Process', 'CT Parameter Graphs']
+2025-11-19 17:52:24,431 - INFO - Candidate sheets after Layer 1: ['CT Parameter Graphs']
+2025-11-19 17:52:24,476 - WARNING - No sheets passed validation in DCM 850 CT TPD Report - AUG 2024 to AUG 2025.xlsx
+2025-11-19 17:52:24,504 - INFO - 
+Processing: DCM Mainplant CWT Monthly Report - July 2013 (2).xlsx
+2025-11-19 17:52:24,506 - INFO - Available sheets: ['Table 1', 'Table 2', 'Table 3', 'Table 4']
+2025-11-19 17:52:24,506 - WARNING - No candidate sheets found in DCM Mainplant CWT Monthly Report - July 2013 (2).xlsx
+2025-11-19 17:52:24,550 - INFO - 
+Processing: DCM Mainplant CWT Monthly Report - May 2013.xlsx
+2025-11-19 17:52:24,550 - INFO - Available sheets: ['Word file', 'MakeUp', 'Cooling Tower', 'Operational Parameters', 'CT Parameter Graphs', 'Operational Graphs']
+2025-11-19 17:52:24,550 - INFO - Candidate sheets after Layer 1: ['Cooling Tower', 'CT Parameter Graphs']
+2025-11-19 17:52:24,659 - INFO -   Rows: 41, Params found: ['ph', 'tds']
+2025-11-19 17:52:24,703 - INFO - 
+Processing: DCM MPCWT Monthly Report - April 2013.xlsx
+2025-11-19 17:52:24,704 - INFO - Available sheets: ['Word file', 'MakeUp', 'Cooling Tower', 'Operational Parameters', 'CT Parameter Graphs', 'Operational Graphs', 'Chemical Consumption']
+2025-11-19 17:52:24,705 - INFO - Candidate sheets after Layer 1: ['Cooling Tower', 'CT Parameter Graphs']
+2025-11-19 17:52:24,768 - INFO -   Rows: 41, Params found: ['ph', 'tds']
+2025-11-19 17:52:24,821 - INFO - 
+Processing: DCM    NEW CT Report -JAN 2024 to OCT 2025.xls
+2025-11-19 17:52:24,821 - INFO - Available sheets: ['MakeUp', 'New CT PH Process', 'CT Parameter Graphs']
+2025-11-19 17:52:24,821 - INFO - Candidate sheets after Layer 1: ['CT Parameter Graphs']
+2025-11-19 17:52:24,871 - WARNING - No sheets passed validation in DCM    NEW CT Report -JAN 2024 to OCT 2025.xls
+2025-11-19 17:52:24,908 - INFO - 
+Processing: DCM   OLD Report - APRIL 2023 to july 24 and sept-oct 25.xls
+2025-11-19 17:52:24,908 - INFO - Available sheets: ['Word file', 'MakeUp', 'OLD CT PH Process', 'CT Parameter Graphs']
+2025-11-19 17:52:24,908 - INFO - Candidate sheets after Layer 1: ['CT Parameter Graphs']
+2025-11-19 17:52:24,943 - WARNING - No sheets passed validation in DCM   OLD Report - APRIL 2023 to july 24 and sept-oct 25.xls
+2025-11-19 17:52:24,960 - INFO - 
+Processing: DCM  MAIN PLANT CWT  NEW CT 850 TPD Report - MARCH 2024.xls
+2025-11-19 17:52:24,960 - INFO - Available sheets: ['Word file', 'MakeUp', 'NEW CT 852 TPD  PH Process', 'CT Parameter Graphs']
+2025-11-19 17:52:24,963 - INFO - Candidate sheets after Layer 1: ['CT Parameter Graphs']
+2025-11-19 17:52:24,974 - WARNING - No sheets passed validation in DCM  MAIN PLANT CWT  NEW CT 850 TPD Report - MARCH 2024.xls
+2025-11-19 17:52:24,990 - INFO - 
+Processing: DCM  MAIN PLANT CWT  NEW Report - August 2023.xls
+2025-11-19 17:52:24,990 - INFO - Available sheets: ['Word file', 'MakeUp', 'New CT PH Process', 'CT Parameter Graphs']
+2025-11-19 17:52:24,990 - INFO - Candidate sheets after Layer 1: ['CT Parameter Graphs']
+2025-11-19 17:52:25,005 - WARNING - No sheets passed validation in DCM  MAIN PLANT CWT  NEW Report - August 2023.xls
+2025-11-19 17:52:25,020 - INFO - 
+Processing: DCM  MAIN PLANT CWT  NEW Report - DEC-2023.xls
+2025-11-19 17:52:25,021 - INFO - Available sheets: ['Word file', 'MakeUp', 'New CT PH Process', 'CT Parameter Graphs']
+2025-11-19 17:52:25,021 - INFO - Candidate sheets after Layer 1: ['CT Parameter Graphs']
+2025-11-19 17:52:25,035 - WARNING - No sheets passed validation in DCM  MAIN PLANT CWT  NEW Report - DEC-2023.xls
+2025-11-19 17:52:25,051 - INFO - 
+Processing: DCM  MAIN PLANT CWT  NEW Report - FEB-2024.xls
+2025-11-19 17:52:25,052 - INFO - Available sheets: ['Word file', 'MakeUp', 'New CT PH Process', 'CT Parameter Graphs']
+2025-11-19 17:52:25,052 - INFO - Candidate sheets after Layer 1: ['CT Parameter Graphs']
+2025-11-19 17:52:25,065 - WARNING - No sheets passed validation in DCM  MAIN PLANT CWT  NEW Report - FEB-2024.xls
+2025-11-19 17:52:25,083 - INFO - 
+Processing: DCM  MAIN PLANT CWT  NEW Report - july 2023.xls
+2025-11-19 17:52:25,083 - INFO - Available sheets: ['Word file', 'MakeUp', 'New CT PH Process', 'CT Parameter Graphs']
+2025-11-19 17:52:25,084 - INFO - Candidate sheets after Layer 1: ['CT Parameter Graphs']
+2025-11-19 17:52:25,096 - WARNING - No sheets passed validation in DCM  MAIN PLANT CWT  NEW Report - july 2023.xls
+2025-11-19 17:52:25,113 - INFO - 
+Processing: DCM  MAIN PLANT CWT  NEW Report - june 2023.xls
+2025-11-19 17:52:25,114 - INFO - Available sheets: ['Word file', 'MakeUp', 'New CT PH Process', 'CT Parameter Graphs']
+2025-11-19 17:52:25,114 - INFO - Candidate sheets after Layer 1: ['CT Parameter Graphs']
+2025-11-19 17:52:25,127 - WARNING - No sheets passed validation in DCM  MAIN PLANT CWT  NEW Report - june 2023.xls
+2025-11-19 17:52:25,151 - INFO - 
+Processing: DCM  MAIN PLANT CWT  NEW Report - MAY 2023.xls
+2025-11-19 17:52:25,152 - INFO - Available sheets: ['Word file', 'MakeUp', 'New CT PH Process', 'CT Parameter Graphs']
+2025-11-19 17:52:25,152 - INFO - Candidate sheets after Layer 1: ['CT Parameter Graphs']
+2025-11-19 17:52:25,168 - WARNING - No sheets passed validation in DCM  MAIN PLANT CWT  NEW Report - MAY 2023.xls
+2025-11-19 17:52:25,186 - INFO - 
+Processing: DCM  MAIN PLANT CWT  NEW Report - NOV-2023.xls
+2025-11-19 17:52:25,186 - INFO - Available sheets: ['Word file', 'MakeUp', 'New CT PH Process', 'CT Parameter Graphs']
+2025-11-19 17:52:25,187 - INFO - Candidate sheets after Layer 1: ['CT Parameter Graphs']
+2025-11-19 17:52:25,201 - WARNING - No sheets passed validation in DCM  MAIN PLANT CWT  NEW Report - NOV-2023.xls
+2025-11-19 17:52:25,216 - INFO - 
+Processing: DCM  MAIN PLANT CWT  NEW Report - OCT-2023.xls
+2025-11-19 17:52:25,216 - INFO - Available sheets: ['Word file', 'MakeUp', 'New CT PH Process', 'CT Parameter Graphs']
+2025-11-19 17:52:25,217 - INFO - Candidate sheets after Layer 1: ['CT Parameter Graphs']
+2025-11-19 17:52:25,231 - WARNING - No sheets passed validation in DCM  MAIN PLANT CWT  NEW Report - OCT-2023.xls
+2025-11-19 17:52:25,259 - INFO - 
+Processing: DCM  MAIN PLANT CWT  NEW Report - SEPT-2023.xls
+2025-11-19 17:52:25,259 - INFO - Available sheets: ['Word file', 'MakeUp', 'New CT PH Process', 'CT Parameter Graphs']
+2025-11-19 17:52:25,259 - INFO - Candidate sheets after Layer 1: ['CT Parameter Graphs']
+2025-11-19 17:52:25,274 - WARNING - No sheets passed validation in DCM  MAIN PLANT CWT  NEW Report - SEPT-2023.xls
+2025-11-19 17:52:25,290 - INFO - 
+Processing: DCM  MAIN PLANT CWT  NEW Report -april 2022.xls
+2025-11-19 17:52:25,291 - INFO - Available sheets: ['Word file', 'MakeUp', 'New CT PH Process', 'CT Parameter Graphs']
+2025-11-19 17:52:25,291 - INFO - Candidate sheets after Layer 1: ['CT Parameter Graphs']
+2025-11-19 17:52:25,310 - WARNING - No sheets passed validation in DCM  MAIN PLANT CWT  NEW Report -april 2022.xls
+2025-11-19 17:52:25,326 - INFO - 
+Processing: DCM  MAIN PLANT CWT  NEW Report -Jan2022.xls
+2025-11-19 17:52:25,326 - INFO - Available sheets: ['Word file', 'MakeUp', 'New CT PH Process', 'CT Parameter Graphs']
+2025-11-19 17:52:25,327 - INFO - Candidate sheets after Layer 1: ['CT Parameter Graphs']
+2025-11-19 17:52:25,340 - WARNING - No sheets passed validation in DCM  MAIN PLANT CWT  NEW Report -Jan2022.xls
+2025-11-19 17:52:25,355 - INFO - 
+Processing: DCM  MAIN PLANT CWT  NEW Report -june 2022.xls
+2025-11-19 17:52:25,356 - INFO - Available sheets: ['Word file', 'MakeUp', 'New CT PH Process', 'CT Parameter Graphs']
+2025-11-19 17:52:25,356 - INFO - Candidate sheets after Layer 1: ['CT Parameter Graphs']
+2025-11-19 17:52:25,373 - WARNING - No sheets passed validation in DCM  MAIN PLANT CWT  NEW Report -june 2022.xls
+2025-11-19 17:52:25,388 - INFO - 
+Processing: DCM  MAIN PLANT CWT  NEW Report -MARCH 2023.xls
+2025-11-19 17:52:25,389 - INFO - Available sheets: ['Word file', 'MakeUp', 'New CT PH Process', 'CT Parameter Graphs']
+2025-11-19 17:52:25,389 - INFO - Candidate sheets after Layer 1: ['CT Parameter Graphs']
+2025-11-19 17:52:25,401 - WARNING - No sheets passed validation in DCM  MAIN PLANT CWT  NEW Report -MARCH 2023.xls
+2025-11-19 17:52:25,418 - INFO - 
+Processing: DCM  MAIN PLANT CWT  NEW Report -MARCH 2024.xls
+2025-11-19 17:52:25,418 - INFO - Available sheets: ['Word file', 'MakeUp', 'New CT PH Process', 'CT Parameter Graphs']
+2025-11-19 17:52:25,418 - INFO - Candidate sheets after Layer 1: ['CT Parameter Graphs']
+2025-11-19 17:52:25,434 - WARNING - No sheets passed validation in DCM  MAIN PLANT CWT  NEW Report -MARCH 2024.xls
+2025-11-19 17:52:25,448 - INFO - 
+Processing: DCM  MAIN PLANT CWT  OLD Report  Jan22.xls
+2025-11-19 17:52:25,449 - INFO - Available sheets: ['Word file', 'MakeUp', 'OLD CT PH Process', 'CT Parameter Graphs']
+2025-11-19 17:52:25,449 - INFO - Candidate sheets after Layer 1: ['CT Parameter Graphs']
+2025-11-19 17:52:25,460 - WARNING - No sheets passed validation in DCM  MAIN PLANT CWT  OLD Report  Jan22.xls
+2025-11-19 17:52:25,474 - INFO - 
+Processing: DCM  MAIN PLANT CWT  OLD Report - August 2023.xls
+2025-11-19 17:52:25,475 - INFO - Available sheets: ['Word file', 'MakeUp', 'OLD CT PH Process', 'CT Parameter Graphs']
+2025-11-19 17:52:25,475 - INFO - Candidate sheets after Layer 1: ['CT Parameter Graphs']
+2025-11-19 17:52:25,490 - WARNING - No sheets passed validation in DCM  MAIN PLANT CWT  OLD Report - August 2023.xls
+2025-11-19 17:52:25,505 - INFO - 
+Processing: DCM  MAIN PLANT CWT  OLD Report - DEC-2023.xls
+2025-11-19 17:52:25,505 - INFO - Available sheets: ['Word file', 'MakeUp', 'OLD CT PH Process', 'CT Parameter Graphs']
+2025-11-19 17:52:25,506 - INFO - Candidate sheets after Layer 1: ['CT Parameter Graphs']
+2025-11-19 17:52:25,520 - WARNING - No sheets passed validation in DCM  MAIN PLANT CWT  OLD Report - DEC-2023.xls
+2025-11-19 17:52:25,539 - INFO - 
+Processing: DCM  MAIN PLANT CWT  OLD Report - FEB-2024.xls
+2025-11-19 17:52:25,539 - INFO - Available sheets: ['Word file', 'MakeUp', 'OLD CT PH Process', 'CT Parameter Graphs']
+2025-11-19 17:52:25,540 - INFO - Candidate sheets after Layer 1: ['CT Parameter Graphs']
+2025-11-19 17:52:25,556 - WARNING - No sheets passed validation in DCM  MAIN PLANT CWT  OLD Report - FEB-2024.xls
+2025-11-19 17:52:25,573 - INFO - 
+Processing: DCM  MAIN PLANT CWT  OLD Report - july 2023.xls
+2025-11-19 17:52:25,574 - INFO - Available sheets: ['Word file', 'MakeUp', 'OLD CT PH Process', 'CT Parameter Graphs']
+2025-11-19 17:52:25,574 - INFO - Candidate sheets after Layer 1: ['CT Parameter Graphs']
+2025-11-19 17:52:25,590 - WARNING - No sheets passed validation in DCM  MAIN PLANT CWT  OLD Report - july 2023.xls
+2025-11-19 17:52:25,607 - INFO - 
+Processing: DCM  MAIN PLANT CWT  OLD Report - june 2023.xls
+2025-11-19 17:52:25,608 - INFO - Available sheets: ['Word file', 'MakeUp', 'OLD CT PH Process', 'CT Parameter Graphs']
+2025-11-19 17:52:25,608 - INFO - Candidate sheets after Layer 1: ['CT Parameter Graphs']
+2025-11-19 17:52:25,622 - WARNING - No sheets passed validation in DCM  MAIN PLANT CWT  OLD Report - june 2023.xls
+2025-11-19 17:52:25,639 - INFO - 
+Processing: DCM  MAIN PLANT CWT  OLD Report - MARCH 2023.xls
+2025-11-19 17:52:25,639 - INFO - Available sheets: ['Word file', 'MakeUp', 'OLD CT PH Process', 'CT Parameter Graphs']
+2025-11-19 17:52:25,640 - INFO - Candidate sheets after Layer 1: ['CT Parameter Graphs']
+2025-11-19 17:52:25,656 - WARNING - No sheets passed validation in DCM  MAIN PLANT CWT  OLD Report - MARCH 2023.xls
+2025-11-19 17:52:25,672 - INFO - 
+Processing: DCM  MAIN PLANT CWT  OLD Report - MARCH 2024.xls
+2025-11-19 17:52:25,672 - INFO - Available sheets: ['Word file', 'MakeUp', 'OLD CT PH Process', 'CT Parameter Graphs']
+2025-11-19 17:52:25,673 - INFO - Candidate sheets after Layer 1: ['CT Parameter Graphs']
+2025-11-19 17:52:25,686 - WARNING - No sheets passed validation in DCM  MAIN PLANT CWT  OLD Report - MARCH 2024.xls
+2025-11-19 17:52:25,702 - INFO - 
+Processing: DCM  MAIN PLANT CWT  OLD Report - NOV-2023.xls
+2025-11-19 17:52:25,702 - INFO - Available sheets: ['Word file', 'MakeUp', 'OLD CT PH Process', 'CT Parameter Graphs']
+2025-11-19 17:52:25,702 - INFO - Candidate sheets after Layer 1: ['CT Parameter Graphs']
+2025-11-19 17:52:25,717 - WARNING - No sheets passed validation in DCM  MAIN PLANT CWT  OLD Report - NOV-2023.xls
+2025-11-19 17:52:25,733 - INFO - 
+Processing: DCM  MAIN PLANT CWT  OLD Report - OCT -2023.xls
+2025-11-19 17:52:25,734 - INFO - Available sheets: ['Word file', 'MakeUp', 'OLD CT PH Process', 'CT Parameter Graphs']
+2025-11-19 17:52:25,734 - INFO - Candidate sheets after Layer 1: ['CT Parameter Graphs']
+2025-11-19 17:52:25,746 - WARNING - No sheets passed validation in DCM  MAIN PLANT CWT  OLD Report - OCT -2023.xls
+2025-11-19 17:52:25,762 - INFO - 
+Processing: DCM  MAIN PLANT CWT  OLD Report - SEPT-2023.xls
+2025-11-19 17:52:25,762 - INFO - Available sheets: ['Word file', 'MakeUp', 'OLD CT PH Process', 'CT Parameter Graphs']
+2025-11-19 17:52:25,764 - INFO - Candidate sheets after Layer 1: ['CT Parameter Graphs']
+2025-11-19 17:52:25,776 - WARNING - No sheets passed validation in DCM  MAIN PLANT CWT  OLD Report - SEPT-2023.xls
+2025-11-19 17:52:25,791 - INFO - 
+Processing: DCM  MAIN PLANT CWT  OLD Report -april 2022.xls
+2025-11-19 17:52:25,791 - INFO - Available sheets: ['Word file', 'MakeUp', 'OLD CT PH Process', 'CT Parameter Graphs']
+2025-11-19 17:52:25,791 - INFO - Candidate sheets after Layer 1: ['CT Parameter Graphs']
+2025-11-19 17:52:25,806 - WARNING - No sheets passed validation in DCM  MAIN PLANT CWT  OLD Report -april 2022.xls
+2025-11-19 17:52:25,825 - INFO - 
+Processing: DCM  MAIN PLANT CWT  OLD Report -MAY 2023.xls
+2025-11-19 17:52:25,825 - INFO - Available sheets: ['Word file', 'MakeUp', 'OLD CT PH Process', 'CT Parameter Graphs']
+2025-11-19 17:52:25,825 - INFO - Candidate sheets after Layer 1: ['CT Parameter Graphs']
+2025-11-19 17:52:25,839 - WARNING - No sheets passed validation in DCM  MAIN PLANT CWT  OLD Report -MAY 2023.xls
+2025-11-19 17:52:25,856 - INFO - 
+Processing: DCM  MAIN PLANT CWT Analysis - AUG 2014.xls
+2025-11-19 17:52:25,857 - INFO - Available sheets: ['Word file', 'MakeUp', ' MAIN PLANT Cooling Tower', 'Operational Parameters', 'CT Parameter Graphs', 'Operational Graphs']
+2025-11-19 17:52:25,858 - INFO - Candidate sheets after Layer 1: [' MAIN PLANT Cooling Tower', 'CT Parameter Graphs']
+2025-11-19 17:52:25,882 - INFO -   Rows: 41, Params found: ['ph', 'tds']
+2025-11-19 17:52:25,901 - INFO - 
+Processing: DCM  MAIN PLANT CWT Analysis - OCT 2014.xls
+2025-11-19 17:52:25,902 - INFO - Available sheets: ['Word file', 'MakeUp', 'MAIN PLANT Cooling Tower', 'CT Parameter Graphs']
+2025-11-19 17:52:25,902 - INFO - Candidate sheets after Layer 1: ['MAIN PLANT Cooling Tower', 'CT Parameter Graphs']
+2025-11-19 17:52:25,924 - INFO -   Rows: 40, Params found: ['ph', 'tds']
+2025-11-19 17:52:25,947 - INFO - 
+Processing: DCM  MAIN PLANT CWT Analysis - SEPT 2014.xls
+2025-11-19 17:52:25,948 - INFO - Available sheets: ['Word file', 'MakeUp', 'MAIN PLANT Cooling Tower', 'CT Parameter Graphs']
+2025-11-19 17:52:25,948 - INFO - Candidate sheets after Layer 1: ['MAIN PLANT Cooling Tower', 'CT Parameter Graphs']
+2025-11-19 17:52:25,967 - INFO -   Rows: 40, Params found: ['ph', 'tds']
+2025-11-19 17:52:25,978 - INFO - 
+Processing: DCM  MAIN PLANT CWT REPORT -  APRIL-2016.xls
+2025-11-19 17:52:25,978 - INFO - Available sheets: ['Word file', 'MakeUp', ' MAIN PLANT Cooling Tower', 'CT Parameter Graphs']
+2025-11-19 17:52:25,979 - INFO - Candidate sheets after Layer 1: [' MAIN PLANT Cooling Tower', 'CT Parameter Graphs']
+2025-11-19 17:52:26,069 - INFO -   Rows: 39, Params found: ['ph', 'tds']
+2025-11-19 17:52:26,088 - INFO - 
+Processing: DCM  MAIN PLANT CWT REPORT -  MAY - 2016.xls
+2025-11-19 17:52:26,089 - INFO - Available sheets: ['Word file', 'MakeUp', ' MAIN PLANT Cooling Tower', 'CT Parameter Graphs']
+2025-11-19 17:52:26,089 - INFO - Candidate sheets after Layer 1: [' MAIN PLANT Cooling Tower', 'CT Parameter Graphs']
+2025-11-19 17:52:26,104 - INFO -   Rows: 41, Params found: ['ph', 'tds']
+2025-11-19 17:52:26,115 - INFO - 
+Processing: DCM  MAIN PLANT CWT REPORT - AUGUST  - 2016.xls
+2025-11-19 17:52:26,116 - INFO - Available sheets: ['Word file', 'MakeUp', ' MAIN PLANT Cooling Tower', 'CT Parameter Graphs']
+2025-11-19 17:52:26,116 - INFO - Candidate sheets after Layer 1: [' MAIN PLANT Cooling Tower', 'CT Parameter Graphs']
+2025-11-19 17:52:26,130 - INFO -   Rows: 41, Params found: ['ph', 'tds']
+2025-11-19 17:52:26,141 - INFO - 
+Processing: DCM  MAIN PLANT CWT Report - July - 2015.xls
+2025-11-19 17:52:26,141 - INFO - Available sheets: ['Word file', 'MakeUp', ' MAIN PLANT Cooling Tower', 'CT Parameter Graphs']
+2025-11-19 17:52:26,142 - INFO - Candidate sheets after Layer 1: [' MAIN PLANT Cooling Tower', 'CT Parameter Graphs']
+2025-11-19 17:52:26,158 - INFO -   Rows: 40, Params found: ['ph', 'tds']
+2025-11-19 17:52:26,171 - INFO - 
+Processing: DCM  MAIN PLANT CWT Report - JUNE - 2015.xls
+2025-11-19 17:52:26,171 - INFO - Available sheets: ['Word file', 'MakeUp', ' MAIN PLANT Cooling Tower', 'CT Parameter Graphs']
+2025-11-19 17:52:26,172 - INFO - Candidate sheets after Layer 1: [' MAIN PLANT Cooling Tower', 'CT Parameter Graphs']
+2025-11-19 17:52:26,192 - INFO -   Rows: 39, Params found: ['ph', 'tds']
+2025-11-19 17:52:26,206 - INFO - 
+Processing: DCM  MAIN PLANT CWT Report - SEPTYEMBER - 2015.xls
+2025-11-19 17:52:26,207 - INFO - Available sheets: ['Word file', 'MakeUp', ' MAIN PLANT Cooling Tower', 'CT Parameter Graphs']
+2025-11-19 17:52:26,207 - INFO - Candidate sheets after Layer 1: [' MAIN PLANT Cooling Tower', 'CT Parameter Graphs']
+2025-11-19 17:52:26,224 - INFO -   Rows: 39, Params found: ['ph', 'tds']
+2025-11-19 17:52:26,235 - INFO - 
+Processing: DCM  X 01 CT  NEW PLANT CWT REPORT - AUGUST  - 2016.xls
+2025-11-19 17:52:26,235 - INFO - Available sheets: ['Word file', 'MakeUp', ' NEW PLANT X 01 Cooling Tower', 'CT Parameter Graphs']
+2025-11-19 17:52:26,236 - INFO - Candidate sheets after Layer 1: [' NEW PLANT X 01 Cooling Tower', 'CT Parameter Graphs']
+2025-11-19 17:52:26,253 - INFO -   Rows: 41, Params found: ['ph', 'tds']
+2025-11-19 17:52:26,294 - INFO - 
+Processing: DCM 850 CT TPD Report - April 2024 to OCT 2025.xls
+2025-11-19 17:52:26,294 - INFO - Available sheets: ['MakeUp', 'NEW CT 850 TPD  PH Process', 'CT Parameter Graphs']
+2025-11-19 17:52:26,294 - INFO - Candidate sheets after Layer 1: ['CT Parameter Graphs']
+2025-11-19 17:52:26,329 - WARNING - No sheets passed validation in DCM 850 CT TPD Report - April 2024 to OCT 2025.xls
+2025-11-19 17:52:26,344 - INFO - 
+Processing: DCM Mainplant CWT Monthly Report - August2013.xls
+2025-11-19 17:52:26,345 - INFO - Available sheets: ['Word file', 'MakeUp', 'Cooling Tower', 'CT Parameter Graphs']
+2025-11-19 17:52:26,345 - INFO - Candidate sheets after Layer 1: ['Cooling Tower', 'CT Parameter Graphs']
+2025-11-19 17:52:26,363 - INFO -   Rows: 41, Params found: ['ph', 'tds']
+2025-11-19 17:52:26,376 - INFO - 
+Processing: DCM Mainplant CWT Monthly Report - Feb 2014.xls
+2025-11-19 17:52:26,376 - INFO - Available sheets: ['Word file', 'MakeUp', 'Cooling Tower', 'CT Parameter Graphs']
+2025-11-19 17:52:26,376 - INFO - Candidate sheets after Layer 1: ['Cooling Tower', 'CT Parameter Graphs']
+2025-11-19 17:52:26,394 - INFO -   Rows: 41, Params found: ['ph', 'tds']
+2025-11-19 17:52:26,408 - INFO - 
+Processing: DCM Mainplant CWT Monthly Report - Jan 2014.xls
+2025-11-19 17:52:26,409 - INFO - Available sheets: ['Word file', 'MakeUp', 'Cooling Tower', 'CT Parameter Graphs']
+2025-11-19 17:52:26,409 - INFO - Candidate sheets after Layer 1: ['Cooling Tower', 'CT Parameter Graphs']
+2025-11-19 17:52:26,434 - INFO -   Rows: 41, Params found: ['ph', 'tds']
+2025-11-19 17:52:26,447 - INFO - 
+Processing: DCM Mainplant CWT Monthly Report - July 2013.xls
+2025-11-19 17:52:26,448 - INFO - Available sheets: ['Word file', 'MakeUp', 'Cooling Tower', 'CT Parameter Graphs']
+2025-11-19 17:52:26,448 - INFO - Candidate sheets after Layer 1: ['Cooling Tower', 'CT Parameter Graphs']
+2025-11-19 17:52:26,467 - INFO -   Rows: 41, Params found: ['ph', 'tds']
+2025-11-19 17:52:26,480 - INFO - 
+Processing: DCM Mainplant CWT Monthly Report - June 2013.xls
+2025-11-19 17:52:26,480 - INFO - Available sheets: ['Word file', 'MakeUp', 'Cooling Tower', 'CT Parameter Graphs']
+2025-11-19 17:52:26,481 - INFO - Candidate sheets after Layer 1: ['Cooling Tower', 'CT Parameter Graphs']
+2025-11-19 17:52:26,501 - INFO -   Rows: 41, Params found: ['ph', 'tds']
+2025-11-19 17:52:26,516 - INFO - 
+Processing: DCM Mainplant CWT Monthly Report - Oct 2013.xls
+2025-11-19 17:52:26,516 - INFO - Available sheets: ['Word file', 'MakeUp', 'Cooling Tower', 'CT Parameter Graphs']
+2025-11-19 17:52:26,517 - INFO - Candidate sheets after Layer 1: ['Cooling Tower', 'CT Parameter Graphs']
+2025-11-19 17:52:26,538 - INFO -   Rows: 41, Params found: ['ph', 'tds']
+2025-11-19 17:52:26,554 - INFO - 
+Processing: DCM Mainplant CWT Monthly Report - Sept 2013.xls
+2025-11-19 17:52:26,554 - INFO - Available sheets: ['Word file', 'MakeUp', 'Cooling Tower', 'CT Parameter Graphs']
+2025-11-19 17:52:26,554 - INFO - Candidate sheets after Layer 1: ['Cooling Tower', 'CT Parameter Graphs']
+2025-11-19 17:52:26,575 - INFO -   Rows: 41, Params found: ['ph', 'tds']
+2025-11-19 17:52:26,591 - INFO - 
+Processing: DCM POWER PLANT CWT REPORT- AUGUST 2016.xls
+2025-11-19 17:52:26,591 - INFO - Available sheets: ['Word file', 'MakeUp', 'COOLING WATER PARAMETERS', 'Operational Parameters', 'Operational Graphs', 'CT Parameter Graphs']
+2025-11-19 17:52:26,591 - INFO - Candidate sheets after Layer 1: ['COOLING WATER PARAMETERS', 'CT Parameter Graphs']
+2025-11-19 17:52:26,612 - INFO -   Rows: 41, Params found: ['ph', 'tds']
+2025-11-19 17:52:26,631 - INFO - 
+Processing: DCM Powerplant CWT Report - JANUARY 2015.xls
+2025-11-19 17:52:26,632 - INFO - Available sheets: ['Word file', 'MakeUp', 'Cooling Tower', 'Operational Parameters', 'CT Parameter Graphs', 'Operational Graphs']
+2025-11-19 17:52:26,632 - INFO - Candidate sheets after Layer 1: ['Cooling Tower', 'CT Parameter Graphs']
+2025-11-19 17:52:26,657 - INFO -   Rows: 41, Params found: ['ph', 'tds']
+2025-11-19 17:52:26,668 - INFO - 
+Processing: DCM X 01CT NEW PLANT CWT REPORT-JULY-2016.xls
+2025-11-19 17:52:26,668 - INFO - Available sheets: ['Word file', 'MakeUp', ' MAIN PLANT Cooling Tower', 'CT Parameter Graphs']
+2025-11-19 17:52:26,668 - INFO - Candidate sheets after Layer 1: [' MAIN PLANT Cooling Tower', 'CT Parameter Graphs']
+2025-11-19 17:52:26,685 - INFO -   Rows: 52, Params found: ['ph', 'tds']
+2025-11-19 17:52:26,698 - INFO - 
+Processing: MAIN PLANT CW REPORT - SEPEMBER - 2018.xls
+2025-11-19 17:52:26,698 - INFO - Available sheets: ['Word file', 'MakeUp', ' MAIN PLANT Cooling Tower', 'CT Parameter Graphs']
+2025-11-19 17:52:26,699 - INFO - Candidate sheets after Layer 1: [' MAIN PLANT Cooling Tower', 'CT Parameter Graphs']
+2025-11-19 17:52:26,716 - INFO -   Rows: 48, Params found: ['ph', 'tds']
+2025-11-19 17:52:26,721 - INFO - 
+Processing: main plant dosing aug-14.xls
+2025-11-19 17:52:26,721 - INFO - Available sheets: ['c.dosing']
+2025-11-19 17:52:26,721 - WARNING - No candidate sheets found in main plant dosing aug-14.xls
+2025-11-19 17:52:26,733 - INFO - 
+Processing: SAC   X 01  CT  CW REPORT - DECEMBER - 2019 (1).xls
+2025-11-19 17:52:26,734 - INFO - Available sheets: ['Word file', 'MakeUp', ' NEW PLANT X 01 Cooling Tower', 'CT Parameter Graphs']
+2025-11-19 17:52:26,734 - INFO - Candidate sheets after Layer 1: [' NEW PLANT X 01 Cooling Tower', 'CT Parameter Graphs']
+2025-11-19 17:52:26,751 - INFO -   Rows: 40, Params found: ['ph', 'tds']
+2025-11-19 17:52:26,763 - INFO - 
+Processing: SAC MAIN PLANT CW REPORT - DECEMBER  -  2019.xls
+2025-11-19 17:52:26,764 - INFO - Available sheets: ['Word file', 'MakeUp', ' MAIN PLANT Cooling Tower', 'CT Parameter Graphs']
+2025-11-19 17:52:26,764 - INFO - Candidate sheets after Layer 1: [' MAIN PLANT Cooling Tower', 'CT Parameter Graphs']
+2025-11-19 17:52:26,781 - INFO -   Rows: 41, Params found: ['ph', 'tds']
+2025-11-19 17:52:26,807 - INFO - 
+Processing: SHREE RAM ALKALIES MAIN PLANT 2012.xls
+2025-11-19 17:52:26,808 - INFO - Available sheets: ['C.W. MAIN PLANT', 'R.W. MAIN PLANT']
+2025-11-19 17:52:26,808 - WARNING - No candidate sheets found in SHREE RAM ALKALIES MAIN PLANT 2012.xls
+2025-11-19 17:52:26,824 - INFO - 
+Processing: SHRIRAM ALKALI & CHEMICALS  MAIN PLANT CWT REPORT FEBRUARY 2017.xls
+2025-11-19 17:52:26,824 - INFO - Available sheets: ['Word file', 'MakeUp', ' MAIN PLANT Cooling Tower', 'CT Parameter Graphs']
+2025-11-19 17:52:26,824 - INFO - Candidate sheets after Layer 1: [' MAIN PLANT Cooling Tower', 'CT Parameter Graphs']
+2025-11-19 17:52:26,850 - INFO -   Rows: 38, Params found: ['ph', 'tds']
+2025-11-19 17:52:26,870 - INFO - 
+Processing: SHRIRAM ALKALI & CHEMICALS  MAIN PLANT CWT REPORT MARCH 2017.xls
+2025-11-19 17:52:26,870 - INFO - Available sheets: ['Word file', 'MakeUp', ' MAIN PLANT Cooling Tower', 'CT Parameter Graphs']
+2025-11-19 17:52:26,871 - INFO - Candidate sheets after Layer 1: [' MAIN PLANT Cooling Tower', 'CT Parameter Graphs']
+2025-11-19 17:52:26,904 - INFO -   Rows: 41, Params found: ['ph', 'tds']
+2025-11-19 17:52:26,920 - INFO - 
+Processing: SHRIRAM ALKALI & CHEMICALS  NEW PLANT X 01  CWT REPORT - APRIL - 2018 (1).xls
+2025-11-19 17:52:26,921 - INFO - Available sheets: ['Word file', 'MakeUp', ' NEW PLANT X 01 Cooling Tower', 'CT Parameter Graphs']
+2025-11-19 17:52:26,921 - INFO - Candidate sheets after Layer 1: [' NEW PLANT X 01 Cooling Tower', 'CT Parameter Graphs']
+2025-11-19 17:52:26,946 - INFO -   Rows: 40, Params found: ['ph', 'tds']
+2025-11-19 17:52:26,959 - INFO - 
+Processing: SHRIRAM ALKALI & CHEMICALS  NEW PLANT X 01  CWT REPORT - DECEMBER - 2017.xls
+2025-11-19 17:52:26,959 - INFO - Available sheets: ['Word file', 'MakeUp', ' NEW PLANT X 01 Cooling Tower', 'CT Parameter Graphs']
+2025-11-19 17:52:26,959 - INFO - Candidate sheets after Layer 1: [' NEW PLANT X 01 Cooling Tower', 'CT Parameter Graphs']
+2025-11-19 17:52:26,978 - INFO -   Rows: 41, Params found: ['ph', 'tds']
+2025-11-19 17:52:26,991 - INFO - 
+Processing: SHRIRAM ALKALI & CHEMICALS  NEW PLANT X 01  CWT REPORT - JUNE - 2017.xls
+2025-11-19 17:52:26,991 - INFO - Available sheets: ['Word file', 'MakeUp', ' NEW PLANT X 01 Cooling Tower', 'CT Parameter Graphs']
+2025-11-19 17:52:26,992 - INFO - Candidate sheets after Layer 1: [' NEW PLANT X 01 Cooling Tower', 'CT Parameter Graphs']
+2025-11-19 17:52:27,010 - INFO -   Rows: 40, Params found: ['ph', 'tds']
+2025-11-19 17:52:27,023 - INFO - 
+Processing: SHRIRAM ALKALI & CHEMICALS  NEW PLANT X 01  CWT REPORT - MARCH - 2018 (1).xls
+2025-11-19 17:52:27,024 - INFO - Available sheets: ['Word file', 'MakeUp', ' NEW PLANT X 01 Cooling Tower', 'CT Parameter Graphs']
+2025-11-19 17:52:27,024 - INFO - Candidate sheets after Layer 1: [' NEW PLANT X 01 Cooling Tower', 'CT Parameter Graphs']
+2025-11-19 17:52:27,045 - INFO -   Rows: 41, Params found: ['ph', 'tds']
+2025-11-19 17:52:27,060 - INFO - 
+Processing: SHRIRAM ALKALI & CHEMICALS  X 01 CT  NEW PLANT CWT REPORT MARCH 2017.xls
+2025-11-19 17:52:27,061 - INFO - Available sheets: ['Word file', 'MakeUp', ' NEW PLANT X 01 Cooling Tower', 'CT Parameter Graphs']
+2025-11-19 17:52:27,061 - INFO - Candidate sheets after Layer 1: [' NEW PLANT X 01 Cooling Tower', 'CT Parameter Graphs']
+2025-11-19 17:52:27,080 - INFO -   Rows: 41, Params found: ['ph', 'tds']
+2025-11-19 17:52:27,093 - INFO - 
+Processing: SHRIRAM ALKALI & CHEMICALS MAIN PLANT CWT REPORT - DECEMBER -2017.xls
+2025-11-19 17:52:27,093 - INFO - Available sheets: ['Word file', 'MakeUp', ' MAIN PLANT Cooling Tower', 'CT Parameter Graphs']
+2025-11-19 17:52:27,094 - INFO - Candidate sheets after Layer 1: [' MAIN PLANT Cooling Tower', 'CT Parameter Graphs']
+2025-11-19 17:52:27,113 - INFO -   Rows: 41, Params found: ['ph', 'tds']
+2025-11-19 17:52:27,130 - INFO - 
+Processing: SHRIRAM ALKALI & CHEMICALS MAIN PLANT CWT REPORT - JUNE -2017.xls
+2025-11-19 17:52:27,130 - INFO - Available sheets: ['Word file', 'MakeUp', ' MAIN PLANT Cooling Tower', 'CT Parameter Graphs']
+2025-11-19 17:52:27,130 - INFO - Candidate sheets after Layer 1: [' MAIN PLANT Cooling Tower', 'CT Parameter Graphs']
+2025-11-19 17:52:27,149 - INFO -   Rows: 40, Params found: ['ph', 'tds']
+2025-11-19 17:52:27,163 - INFO - 
+Processing: SHRIRAM ALKALI & CHEMICALS MAIN PLANT CWT REPORT - MARCH - 2018.xls
+2025-11-19 17:52:27,164 - INFO - Available sheets: ['Word file', 'MakeUp', ' MAIN PLANT Cooling Tower', 'CT Parameter Graphs']
+2025-11-19 17:52:27,164 - INFO - Candidate sheets after Layer 1: [' MAIN PLANT Cooling Tower', 'CT Parameter Graphs']
+2025-11-19 17:52:27,184 - INFO -   Rows: 41, Params found: ['ph', 'tds']
+2025-11-19 17:52:27,211 - INFO - 
+Processing: SHRIRAM ALKALI & CHEMICALS P 48 POWER PLANT  CWT REPORT- APRIL -  2018.xls
+2025-11-19 17:52:27,211 - INFO - Available sheets: ['Word file', 'MakeUp', 'COOLING WATER PARAMETERS', 'Operational Parameters', 'CT Parameter Graphs', 'Operational Graphs']
+2025-11-19 17:52:27,212 - INFO - Candidate sheets after Layer 1: ['COOLING WATER PARAMETERS', 'CT Parameter Graphs']
+2025-11-19 17:52:27,241 - INFO -   Rows: 44, Params found: ['ph', 'tds']
+2025-11-19 17:52:27,266 - INFO - 
+Processing: SHRIRAM ALKALI & CHEMICALS P 48 POWER PLANT  CWT REPORT- MARCH -  2018.xls
+2025-11-19 17:52:27,267 - INFO - Available sheets: ['Word file', 'MakeUp', 'COOLING WATER PARAMETERS', 'Operational Parameters', 'CT Parameter Graphs', 'Operational Graphs']
+2025-11-19 17:52:27,268 - INFO - Candidate sheets after Layer 1: ['COOLING WATER PARAMETERS', 'CT Parameter Graphs']
+2025-11-19 17:52:27,300 - INFO -   Rows: 45, Params found: ['ph', 'tds']
+2025-11-19 17:52:27,324 - INFO - 
+Processing: SHRIRAM ALKALI & CHEMICALS P 48 POWER PLANT CWT REPORT- DECEMBER 2017.xls
+2025-11-19 17:52:27,324 - INFO - Available sheets: ['Word file', 'MakeUp', 'COOLING WATER PARAMETERS', 'Operational Parameters', 'CT Parameter Graphs', 'Operational Graphs']
+2025-11-19 17:52:27,324 - INFO - Candidate sheets after Layer 1: ['COOLING WATER PARAMETERS', 'CT Parameter Graphs']
+2025-11-19 17:52:27,351 - INFO -   Rows: 41, Params found: ['ph', 'tds']
+2025-11-19 17:52:27,368 - INFO - 
+Processing: SHRIRAM ALKALI & CHEMICALS P 60 POWER PLANT  CWT REPORT- APRIL -  2018.xls
+2025-11-19 17:52:27,368 - INFO - Available sheets: ['Word file', 'MakeUp', 'COOLING WATER PARAMETERS', 'Operational Parameters', 'CT Parameter Graphs', 'Operational Graphs']
+2025-11-19 17:52:27,369 - INFO - Candidate sheets after Layer 1: ['COOLING WATER PARAMETERS', 'CT Parameter Graphs']
+2025-11-19 17:52:27,396 - INFO -   Rows: 33, Params found: ['ph', 'tds']
+2025-11-19 17:52:27,420 - INFO - 
+Processing: SHRIRAM ALKALI & CHEMICALS P 60 POWER PLANT  CWT REPORT- DECEMBER 2017.xls
+2025-11-19 17:52:27,420 - INFO - Available sheets: ['Word file', 'MakeUp', 'COOLING WATER PARAMETERS', 'Operational Parameters', 'CT Parameter Graphs', 'Operational Graphs']
+2025-11-19 17:52:27,421 - INFO - Candidate sheets after Layer 1: ['COOLING WATER PARAMETERS', 'CT Parameter Graphs']
+2025-11-19 17:52:27,446 - INFO -   Rows: 45, Params found: ['ph', 'tds']
+2025-11-19 17:52:27,465 - INFO - 
+Processing: SHRIRAM ALKALI & CHEMICALS P 60 POWER PLANT  CWT REPORT- MARCH -  2018.xls
+2025-11-19 17:52:27,466 - INFO - Available sheets: ['Word file', 'MakeUp', 'COOLING WATER PARAMETERS', 'Operational Parameters', 'CT Parameter Graphs', 'Operational Graphs']
+2025-11-19 17:52:27,466 - INFO - Candidate sheets after Layer 1: ['COOLING WATER PARAMETERS', 'CT Parameter Graphs']
+2025-11-19 17:52:27,488 - INFO -   Rows: 27, Params found: ['ph', 'tds']
+2025-11-19 17:52:27,494 - INFO - 
+Processing: Water analysis main plant CT MARCH-13.xls
+2025-11-19 17:52:27,494 - INFO - Available sheets: ['MARCH']
+2025-11-19 17:52:27,494 - WARNING - No candidate sheets found in Water analysis main plant CT MARCH-13.xls
+2025-11-19 17:52:27,509 - INFO - 
+Processing: X 01  CT  CW REPORT - SEPT - 2018.xls
+2025-11-19 17:52:27,510 - INFO - Available sheets: ['Word file', 'MakeUp', ' NEW PLANT X 01 Cooling Tower', 'CT Parameter Graphs']
+2025-11-19 17:52:27,510 - INFO - Candidate sheets after Layer 1: [' NEW PLANT X 01 Cooling Tower', 'CT Parameter Graphs']
+2025-11-19 17:52:27,532 - INFO -   Rows: 39, Params found: ['ph', 'tds']
