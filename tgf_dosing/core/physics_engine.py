@@ -109,28 +109,60 @@ class PhysicsEngine:
         tds = conductivity_us * 0.65
         return max(tds, 50.0)  # TDS can never be 0 in a cooling tower
     
-    def estimate_calcium_hardness(self, coc: float) -> float:
+    def estimate_calcium_hardness(self, coc: float, virtual_sensor=None,
+                                    ph: float = None, conductivity: float = None,
+                                    temperature: float = None, orp: float = None) -> float:
         """
         Estimate Ca hardness from CoC and makeup water quality.
-        Ca concentrates almost linearly with CoC (doesn't precipitate
-        significantly if scale inhibitor is maintaining LSI < 2).
+        If a virtual_sensor is available and confident, uses ML prediction.
         """
-        return self.tower.makeup_calcium_ppm * coc * self.calcium_correction
-    
-    def estimate_total_hardness(self, coc: float) -> float:
+        physics_value = self.tower.makeup_calcium_ppm * coc * self.calcium_correction
+        if virtual_sensor and virtual_sensor.available and ph is not None:
+            physics_th = self.tower.makeup_hardness_ppm * coc * self.hardness_correction
+            physics_alk = self.tower.makeup_alkalinity_ppm * coc * self.alkalinity_correction
+            preds, confidence = virtual_sensor.predict(
+                ph, conductivity or 0, temperature or 32, orp or 400,
+                coc, physics_th, physics_value, physics_alk)
+            if confidence in ("GREEN", "AMBER"):
+                return preds["calcium_hardness"]
+        return physics_value
+
+    def estimate_total_hardness(self, coc: float, virtual_sensor=None,
+                                 ph: float = None, conductivity: float = None,
+                                 temperature: float = None, orp: float = None) -> float:
         """Estimate total hardness from CoC and makeup water quality."""
-        return self.tower.makeup_hardness_ppm * coc * self.hardness_correction
-    
-    def estimate_alkalinity(self, coc: float) -> float:
+        physics_value = self.tower.makeup_hardness_ppm * coc * self.hardness_correction
+        if virtual_sensor and virtual_sensor.available and ph is not None:
+            physics_ca = self.tower.makeup_calcium_ppm * coc * self.calcium_correction
+            physics_alk = self.tower.makeup_alkalinity_ppm * coc * self.alkalinity_correction
+            preds, confidence = virtual_sensor.predict(
+                ph, conductivity or 0, temperature or 32, orp or 400,
+                coc, physics_value, physics_ca, physics_alk)
+            if confidence in ("GREEN", "AMBER"):
+                return preds["total_hardness"]
+        return physics_value
+
+    def estimate_alkalinity(self, coc: float, virtual_sensor=None,
+                             ph: float = None, conductivity: float = None,
+                             temperature: float = None, orp: float = None) -> float:
         """
         Estimate alkalinity from CoC and makeup water quality.
-        
+
         NOTE: Alkalinity does NOT concentrate linearly with CoC.
         CO2 exchange with atmosphere, acid dosing, and chemical
         treatments cause alkalinity to be 70-90% of theoretical.
         The correction factor handles this.
         """
-        return self.tower.makeup_alkalinity_ppm * coc * self.alkalinity_correction
+        physics_value = self.tower.makeup_alkalinity_ppm * coc * self.alkalinity_correction
+        if virtual_sensor and virtual_sensor.available and ph is not None:
+            physics_th = self.tower.makeup_hardness_ppm * coc * self.hardness_correction
+            physics_ca = self.tower.makeup_calcium_ppm * coc * self.calcium_correction
+            preds, confidence = virtual_sensor.predict(
+                ph, conductivity or 0, temperature or 32, orp or 400,
+                coc, physics_th, physics_ca, physics_value)
+            if confidence in ("GREEN", "AMBER"):
+                return preds["total_alkalinity"]
+        return physics_value
     
     def estimate_evaporation_rate(self, 
                                   temperature_c: float,
