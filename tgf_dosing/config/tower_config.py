@@ -298,3 +298,25 @@ class OperatingLimits:
 
 
 DEFAULT_LIMITS = OperatingLimits()
+
+
+# ============================================================================
+# CPCB COMPLIANCE LIMITS (Central Pollution Control Board, India)
+# ============================================================================
+
+@dataclass
+class CPCBLimits:
+    """
+    Indian CPCB discharge limits for cooling tower blowdown.
+    Non-compliance results in plant shutdown orders.
+    """
+    ph_min: float = 5.5
+    ph_max: float = 9.0
+    free_chlorine_max_ppm: float = 0.5     # Free Cl in discharge
+    zinc_max_ppm: float = 5.0              # Zinc in discharge
+    phosphate_max_ppm: float = 5.0         # Phosphate in discharge
+    tds_max_ppm: float = 2100.0            # TDS in discharge
+    temperature_max_c: float = 40.0        # Discharge temperature
+
+
+DEFAULT_CPCB_LIMITS = CPCBLimits()

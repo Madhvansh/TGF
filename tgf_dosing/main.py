@@ -366,7 +366,16 @@ class TGFApplication:
                     "temperature": reading.temperature,
                     "orp": reading.orp,
                 })
-                # Could blend into anomaly_report.system_score here
+                # Blend: if online detector flags anomaly that statistical missed,
+                # take the higher score (conservative for autonomous dosing)
+                if online_score > 0.5 and anomaly_report.system_score < 0.3:
+                    anomaly_report.system_score = max(
+                        anomaly_report.system_score,
+                        online_score * 0.6  # weighted contribution
+                    )
+                    if anomaly_report.system_score > 0.5:
+                        anomaly_report.system_classification = "ANOMALOUS"
+                        anomaly_report.is_anomalous = True
 
             # ────────────────────────────────────────────
             # STEP 1c: Cascade Detection
@@ -919,6 +928,13 @@ def main():
                 )
             except Exception as e:
                 logger.warning(f"Virtual sensor training failed: {e}")
+
+        # Connect virtual sensor to physics engine so it flows into
+        # complete_chemistry() → LSI/RSI → risk assessment → dosing
+        if app.virtual_sensor.available:
+            app.controller.physics._virtual_sensor = app.virtual_sensor
+            logger.info("Virtual sensor connected to physics engine — "
+                        "ML predictions will influence dosing decisions")
 
     # Demo mode: set flag and auto-open browser
     app.demo_mode = args.demo

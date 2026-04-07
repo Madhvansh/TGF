@@ -299,7 +299,7 @@ class SafetyLayer:
             # CHECK 5: Blowdown safety
             # ============================================================
             coc = chemistry.conductivity_us / max(self.tower.makeup_conductivity_us, 1)
-            
+
             # Force blowdown if CoC exceeds absolute max
             if coc > self.limits.coc_max * 1.1:
                 modified_blowdown = max(modified_blowdown, 0.8)
@@ -307,7 +307,7 @@ class SafetyLayer:
                     f"Safety blowdown: CoC={coc:.1f} exceeds max "
                     f"{self.limits.coc_max:.1f}. Forced high blowdown."
                 )
-            
+
             # Prevent excessive blowdown (water waste)
             if coc < self.limits.coc_min and modified_blowdown > 0.3:
                 modified_blowdown = 0.1
@@ -315,6 +315,32 @@ class SafetyLayer:
                     f"Blowdown reduced: CoC={coc:.1f} below minimum "
                     f"{self.limits.coc_min:.1f}. Conserving water."
                 )
+
+            # ============================================================
+            # CHECK 6: CPCB discharge quality compliance
+            # ============================================================
+            try:
+                from config.tower_config import DEFAULT_CPCB_LIMITS
+                cpcb = DEFAULT_CPCB_LIMITS
+                # Block blowdown if discharge pH out of CPCB range
+                if chemistry.ph < cpcb.ph_min or chemistry.ph > cpcb.ph_max:
+                    if modified_blowdown > 0.3:
+                        modified_blowdown = min(modified_blowdown, 0.15)
+                        overrides["cpcb_ph"] = (
+                            f"CPCB compliance: pH={chemistry.ph:.2f} outside "
+                            f"[{cpcb.ph_min}-{cpcb.ph_max}]. Blowdown reduced."
+                        )
+                # Block blowdown during high free chlorine (biocide slug)
+                if (chemistry.free_chlorine_ppm and
+                        chemistry.free_chlorine_ppm > cpcb.free_chlorine_max_ppm):
+                    if modified_blowdown > 0.2:
+                        modified_blowdown = min(modified_blowdown, 0.1)
+                        overrides["cpcb_chlorine"] = (
+                            f"CPCB compliance: Free Cl={chemistry.free_chlorine_ppm:.1f} "
+                            f"exceeds {cpcb.free_chlorine_max_ppm} ppm. Blowdown blocked."
+                        )
+            except ImportError:
+                pass
         
         # Update previous doses for next cycle's rate limiting
         self.previous_doses = dict(modified_doses)

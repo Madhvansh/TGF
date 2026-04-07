@@ -1,44 +1,50 @@
-# Virtual environment
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Virtual environments
 .venv/
 env/
 venv/
-# Python cache
-__pycache__/
-*.pyc
 
-# ML models
+# ML model artifacts
 *.pt
 *.pth
+*.pkl
 *.h5
-
-best_cooling_tower_model.pth
-#best_vtt_model.pth
-cooling_tower_report.txt
-temp.py
-
-
-# Large outputs
-*.csv
-*.json
-
-# Checkpoints
+*.onnx
+*.safetensors
 checkpoints/
+moment_outputs/
 moment_tgf_output/
-moment_tgf_output/
-moment_output/
-*.pt
-*.pth
+
+# Databases
+*.db
+*.sqlite3
+
+# Generated outputs
+outputs/
+*.log
 
 # IDE
 .idea/
 .vscode/
+*.code-workspace
 
 # OS
 .DS_Store
-Thumbs.db*.pt
-moment_outputs/
-*.pt
-*.pth
-moment_outputs/
-*.pt
-*.pth
+Thumbs.db
+desktop.ini
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Testing
+.pytest_cache/
+htmlcov/
+.coverage

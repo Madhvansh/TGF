@@ -200,12 +200,19 @@ class PhysicsEngine:
     # WATER CHEMISTRY COMPLETION
     # ========================================================================
     
-    def complete_chemistry(self, chemistry: WaterChemistry) -> WaterChemistry:
+    def complete_chemistry(self, chemistry: WaterChemistry,
+                           virtual_sensor=None) -> WaterChemistry:
         """
         Fill in missing parameters using physics-based estimation.
         Returns a new WaterChemistry with all fields populated.
+        
+        If a virtual_sensor is available (or stored on self), uses ML-corrected
+        predictions for hardness/alkalinity instead of pure CoC scaling.
         """
         coc = self.estimate_coc(chemistry.conductivity_us)
+        
+        # Use stored virtual sensor if none passed explicitly
+        vs = virtual_sensor or getattr(self, '_virtual_sensor', None)
         
         result = WaterChemistry(
             ph=chemistry.ph,
@@ -218,15 +225,30 @@ class PhysicsEngine:
         # TDS
         result.tds_ppm = chemistry.tds_ppm or self.estimate_tds(chemistry.conductivity_us)
         
-        # Hardness (prefer measured, fall back to estimated)
+        # Hardness (prefer measured → virtual sensor → physics estimation)
         result.calcium_hardness_ppm = (chemistry.calcium_hardness_ppm or 
-                                       self.estimate_calcium_hardness(coc))
+                                       self.estimate_calcium_hardness(
+                                           coc, virtual_sensor=vs,
+                                           ph=chemistry.ph,
+                                           conductivity=chemistry.conductivity_us,
+                                           temperature=chemistry.temperature_c,
+                                           orp=chemistry.orp_mv))
         result.total_hardness_ppm = (chemistry.total_hardness_ppm or 
-                                     self.estimate_total_hardness(coc))
+                                     self.estimate_total_hardness(
+                                         coc, virtual_sensor=vs,
+                                         ph=chemistry.ph,
+                                         conductivity=chemistry.conductivity_us,
+                                         temperature=chemistry.temperature_c,
+                                         orp=chemistry.orp_mv))
         
         # Alkalinity
         result.total_alkalinity_ppm = (chemistry.total_alkalinity_ppm or 
-                                       self.estimate_alkalinity(coc))
+                                       self.estimate_alkalinity(
+                                           coc, virtual_sensor=vs,
+                                           ph=chemistry.ph,
+                                           conductivity=chemistry.conductivity_us,
+                                           temperature=chemistry.temperature_c,
+                                           orp=chemistry.orp_mv))
         
         # Pass through measured values
         result.chlorides_ppm = chemistry.chlorides_ppm

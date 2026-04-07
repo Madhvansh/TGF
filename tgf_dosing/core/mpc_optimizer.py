@@ -398,7 +398,37 @@ class MPCDosingOptimizer:
             if max_kg > 0:
                 rate = doses_kg[i] / max_kg
                 total_cost += self.w_rate_change * rate ** 2
-        
+
+        # ---- 9. CPCB discharge compliance ----
+        # Penalize blowdown when discharge quality would violate CPCB limits
+        try:
+            from config.tower_config import DEFAULT_CPCB_LIMITS
+            cpcb = DEFAULT_CPCB_LIMITS
+            # pH compliance penalty
+            if chemistry.ph < cpcb.ph_min and blowdown_frac > 0.3:
+                total_cost += 200.0 * (cpcb.ph_min - chemistry.ph) ** 2
+            elif chemistry.ph > cpcb.ph_max and blowdown_frac > 0.3:
+                total_cost += 200.0 * (chemistry.ph - cpcb.ph_max) ** 2
+            # TDS compliance penalty
+            tds = (chemistry.tds_ppm or chemistry.conductivity_us * 0.65)
+            if tds > cpcb.tds_max_ppm and blowdown_frac > 0.3:
+                total_cost += 100.0 * ((tds - cpcb.tds_max_ppm) / 1000) ** 2
+            # Free chlorine penalty (avoid blowdown during biocide slug)
+            if chemistry.free_chlorine_ppm and chemistry.free_chlorine_ppm > cpcb.free_chlorine_max_ppm:
+                if blowdown_frac > 0.2:
+                    total_cost += 300.0 * (chemistry.free_chlorine_ppm - cpcb.free_chlorine_max_ppm) ** 2
+        except ImportError:
+            pass
+
+        # ---- 10. Blowdown/dosing interlock ----
+        # Penalize simultaneous heavy blowdown + heavy chemical dosing (waste)
+        total_dose_frac = sum(
+            doses_kg[i] / max(self.tower.chemicals[name].max_dose_rate_kg_per_hr * self.dt_hours, 0.01)
+            for i, name in enumerate(self.continuous_chemicals)
+        ) / max(self.n_chemicals, 1)
+        if blowdown_frac > 0.5 and total_dose_frac > 0.5:
+            total_cost += 20.0 * blowdown_frac * total_dose_frac
+
         return total_cost
     
     def _assess_forecast_risks(self, forecast: SystemForecast
