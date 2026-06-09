@@ -1,0 +1,246 @@
+{
+  "simulation": {
+    "tower": "850_TPD_Main",
+    "total_cycles": 300,
+    "elapsed_seconds": 13.1,
+    "cycles_per_second": 22.9,
+    "simulated_days": 1.0
+  },
+  "water_chemistry": {
+    "LSI": {
+      "mean": -0.222,
+      "std": 1.992,
+      "pct_scaling": 4.0,
+      "pct_corrosive": 12.3,
+      "pct_optimal": 83.0
+    }
+  },
+  "risk_distribution": {
+    "LOW": 75.7,
+    "MODERATE": 10.7,
+    "HIGH": 13.7,
+    "CRITICAL": 0.0
+  },
+  "dosing": {
+    "total_chemical_cost_inr": 236816.0,
+    "daily_avg_cost_inr": 227344.0,
+    "preemptive_pct": 68.7,
+    "safety_override_pct": 25.0,
+    "per_chemical_kg": {
+      "AQUATREAT-2501": 222.69,
+      "AQUATREAT-1196": 561.42,
+      "AQUATREAT-2150": 66.38,
+      "AQUATREAT-3331": 0.0,
+      "AQUATREAT-399": 0.0,
+      "AQUATREAT-4612": 67.49,
+      "AQUATREAT-6625": 67.13
+    }
+  },
+  "chemical_adequacy": {
+    "AQUATREAT-2501": {
+      "ADEQUATE": 8.0,
+      "LOW": 10.7,
+      "CRITICAL": 81.3,
+      "OVERDOSED": 0.0
+    },
+    "AQUATREAT-1196": {
+      "ADEQUATE": 6.7,
+      "LOW": 1.7,
+      "CRITICAL": 91.7,
+      "OVERDOSED": 0.0
+    },
+    "AQUATREAT-2150": {
+      "ADEQUATE": 6.7,
+      "LOW": 11.0,
+      "CRITICAL": 82.3,
+      "OVERDOSED": 0.0
+    },
+    "AQUATREAT-3331": {
+      "ADEQUATE": 0.0,
+      "LOW": 63.7,
+      "CRITICAL": 36.3,
+      "OVERDOSED": 0.0
+    },
+    "AQUATREAT-399": {
+      "ADEQUATE": 0.0,
+      "LOW": 77.0,
+      "CRITICAL": 23.0,
+      "OVERDOSED": 0.0
+    },
+    "AQUATREAT-4612": {
+      "ADEQUATE": 6.3,
+      "LOW": 7.7,
+      "CRITICAL": 86.0,
+      "OVERDOSED": 0.0
+    },
+    "AQUATREAT-6625": {
+      "ADEQUATE": 6.7,
+      "LOW": 18.7,
+      "CRITICAL": 74.7,
+      "OVERDOSED": 0.0
+    }
+  },
+  "anomaly_detection": {
+    "total_anomalies": 246,
+    "anomaly_rate_pct": 82.0,
+    "detector_stats": {
+      "total_cycles_analyzed": 300,
+      "total_anomalies_detected": 246,
+      "anomaly_rate_pct": 82.0,
+      "recent_100_anomaly_rate_pct": 100.0,
+      "consecutive_anomalies": {
+        "pH": 244,
+        "conductivity": 244,
+        "temperature": 208,
+        "orp": 204
+      },
+      "current_means": {
+        "pH": 7.97,
+        "conductivity": 1768.99,
+        "temperature": 27.31,
+        "orp": 570.5
+      },
+      "current_stds": {
+        "pH": 7.91,
+        "conductivity": 1423.79,
+        "temperature": 2.19,
+        "orp": 29.54
+      },
+      "moment_available": false
+    }
+  },
+  "alerts": {
+    "total_created": 40,
+    "total_deduplicated": 1302,
+    "total_auto_resolved": 33,
+    "active_count": 7,
+    "active_by_severity": {
+      "EMERGENCY": 0,
+      "CRITICAL": 2,
+      "WARNING": 4,
+      "INFO": 1
+    },
+    "active_by_category": {
+      "anomaly": 4,
+      "safety": 0,
+      "chemical": 2,
+      "sensor": 0,
+      "system": 1,
+      "water_chemistry": 0
+    }
+  },
+  "ingestion": {
+    "total_rows": 5614,
+    "rows_processed": 300,
+    "rows_skipped": 0,
+    "sensor_faults_injected": 0,
+    "lab_readings_available": "5104",
+    "missing_primary_sensors": {
+      "pH": "56",
+      "conductivity": "1700",
+      "temperature_synthesized": 5614,
+      "orp_synthesized": 5614
+    },
+    "estimated_duration_days": 19.5,
+    "date_range": "1970-01-01 to 1970-01-01",
+    "source_sheets": [
+      "DCM_850_CT_TPD_Report_-_April_2024_to_OCT_2025__chosen",
+      "DCM_850_CT_TPD_Report_-_AUG_2024_to_AUG_2025__chosen",
+      "DCM____NEW_CT_Report_-AUG_2024_to_AUG_2025__chosen",
+      "DCM____NEW_CT_Report_-JAN_2024_to_OCT_2025__chosen",
+      "DCM___ECH_CT_-_SEPT_2024_to_AUG-2025__chosen",
+      "DCM___OLD_Report_-_APRIL_2023_to_july_24_and_sept-oct_25__chosen",
+      "DCM__MAIN_PLANT_CWT__NEW_CT_850_TPD_Report_-_MARCH_2024__chosen",
+      "DCM__MAIN_PLANT_CWT__NEW_Report_-_August_2023__chosen",
+      "DCM__MAIN_PLANT_CWT__NEW_Report_-_DEC-2023__chosen",
+      "DCM__MAIN_PLANT_CWT__NEW_Report_-_FEB-2024__chosen"
+    ]
+  },
+  "dashboard_final_state": {
+    "status": "RUNNING",
+    "cycle": 300,
+    "uptime_hours": 25.0,
+    "sensors": {
+      "pH": 7.87,
+      "conductivity": 2476.9230769230767,
+      "temperature": 30.32233561003837,
+      "ORP": 564.4693337902385
+    },
+    "indices": {
+      "LSI": 0.7382139903802862,
+      "RSI": 6.393572019239428
+    },
+    "risk": {
+      "level": "MODERATE",
+      "scaling": 0.3429283942281718,
+      "corrosion": 0.0,
+      "biofouling": 0.2564951410102731,
+      "primary": "corrosion",
+      "preemptive": true
+    },
+    "chemicals": {
+      "AQUATREAT-2501": {
+        "estimated_ppm": 9.756769705988418,
+        "target_ppm": 12.0,
+        "status": "ADEQUATE",
+        "confidence": 0.4975000000000003
+      },
+      "AQUATREAT-1196": {
+        "estimated_ppm": 20.559718007129355,
+        "target_ppm": 35.0,
+        "status": "CRITICAL",
+        "confidence": 0.4975000000000003
+      },
+      "AQUATREAT-2150": {
+        "estimated_ppm": 3.4143651176051257,
+        "target_ppm": 5.0,
+        "status": "LOW",
+        "confidence": 0.4975000000000003
+      },
+      "AQUATREAT-3331": {
+        "estimated_ppm": 0.8358249483412175,
+        "target_ppm": 35.0,
+        "status": "LOW",
+        "confidence": 0.9
+      },
+      "AQUATREAT-399": {
+        "estimated_ppm": 1.0574255924651317,
+        "target_ppm": 30.0,
+        "status": "LOW",
+        "confidence": 0.9
+      },
+      "AQUATREAT-4612": {
+        "estimated_ppm": 1.8260709589092627,
+        "target_ppm": 4.0,
+        "status": "CRITICAL",
+        "confidence": 0.4975000000000003
+      },
+      "AQUATREAT-6625": {
+        "estimated_ppm": 2.4660956160314575,
+        "target_ppm": 4.0,
+        "status": "LOW",
+        "confidence": 0.4975000000000003
+      }
+    },
+    "dosing": {
+      "AQUATREAT-2501": 0.8333,
+      "AQUATREAT-1196": 2.0833,
+      "AQUATREAT-2150": 0.25,
+      "AQUATREAT-4612": 0.25,
+      "AQUATREAT-6625": 0.25
+    },
+    "blowdown": 0.0,
+    "cost_today_inr": 236816.2866893906,
+    "safety": {
+      "overrides": 0,
+      "emergency_stop": false,
+      "pid_active": false
+    },
+    "water_balance": {
+      "CoC": 6.192307692307692,
+      "evaporation_m3_hr": 120.61369828881516,
+      "blowdown_m3_hr": 22.949304855623662,
+      "makeup_m3_hr": 143.84300314443882
+    }
+  }
+}

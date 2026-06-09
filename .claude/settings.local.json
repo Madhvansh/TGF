@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls -lh \"c:\\\\Users\\\\choks\\\\Downloads\\\\TGF\\\\AI\"/*Trans*.py \"c:\\\\Users\\\\choks\\\\Downloads\\\\TGF\\\\AI\"/*NAS*.py)",
+      "Bash(.venv/Scripts/python.exe -c \"import numpy, pandas, scipy, sklearn; print\\(f''numpy={numpy.__version__}, pandas={pandas.__version__}, scipy={scipy.__version__}, sklearn={sklearn.__version__}''\\)\")",
+      "Bash(.venv/Scripts/python.exe model_comparison.py)",
+      "Bash(.venv/Scripts/python.exe -c \":*)",
+      "Bash(wc -l \"c:\\\\Users\\\\choks\\\\Downloads\\\\TGF\\\\AI\\\\tgf_dosing\\\\core\"/*.py)",
+      "Bash(ls -lh \"/c/Users/choks/Downloads/TGF/AI\"/*.csv)",
+      "Bash(wc -l \"c:/Users/choks/Downloads/TGF/AI/tgf_dosing/infrastructure\"/*.py)",
+      "Bash(du -sh \"/c/Users/choks/Downloads/TGF/AI/\"*)",
+      "Bash(ls -lh \"c:\\\\Users\\\\choks\\\\Downloads\\\\TGF\\\\AI\"/*.pth \"c:\\\\Users\\\\choks\\\\Downloads\\\\TGF\\\\AI\"/*.pt)",
+      "Bash(wc -l \"/c/Users/choks/Downloads/TGF/AI/Misc\"/*.md)",
+      "Bash(grep -l \"def test\" \"c:\\\\Users\\\\choks\\\\Downloads\\\\TGF\\\\AI\\\\tests\"/*.py)",
+      "Bash(wc -l \"c:\\\\Users\\\\choks\\\\Downloads\\\\TGF\\\\AI\\\\tgf_dosing\"/**/*.py)",
+      "Bash(xargs wc:*)",
+      "Bash(wc -l \"c:/Users/choks/Downloads/TGF/AI/tgf_dosing/\"*.py \"c:/Users/choks/Downloads/TGF/AI/tgf_dosing/core/\"*.py \"c:/Users/choks/Downloads/TGF/AI/tgf_dosing/infrastructure/\"*.py \"c:/Users/choks/Downloads/TGF/AI/tgf_dosing/models/\"*.py \"c:/Users/choks/Downloads/TGF/AI/tgf_dosing/config/\"*.py \"c:/Users/choks/Downloads/TGF/AI/tgf_dosing/validation/\"*.py)",
+      "Bash(wc -l \"c:/Users/choks/Downloads/TGF/AI/tests/\"*.py)",
+      "Bash(ls -1 *.py *.csv *.json *.png *.log *.xlsx *.html *.md *.ps1 *.db *.pth *.pkl *.pt *.ipynb *.zip *.txt)"
+    ]
+  }
+}

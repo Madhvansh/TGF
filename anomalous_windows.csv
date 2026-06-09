@@ -1,0 +1,3 @@
+window_idx,reconstruction_error,is_anomaly,threshold,error_zscore
+33,162.71312,True,149.5208,3.3763387
+34,180.94481,True,149.5208,3.8964357

@@ -1,0 +1,176 @@
+{
+  "simulation": {
+    "tower": "850_TPD_Main",
+    "total_cycles": 5614,
+    "elapsed_seconds": 21.6,
+    "cycles_per_second": 259.6,
+    "simulated_days": 19.5
+  },
+  "water_chemistry": {
+    "LSI": {
+      "mean": 0.539,
+      "std": 1.317,
+      "min": -5.0,
+      "max": 5.0,
+      "pct_scaling": 8.6,
+      "pct_corrosive": 4.0,
+      "pct_optimal": 86.2
+    },
+    "RSI": {
+      "mean": 6.7,
+      "std": 1.723
+    }
+  },
+  "risk_distribution": {
+    "LOW": 47.5,
+    "MODERATE": 44.7,
+    "HIGH": 7.8,
+    "CRITICAL": 0.0
+  },
+  "dosing": {
+    "total_chemical_cost_inr": 2520188.0,
+    "daily_avg_cost_inr": 129286.0,
+    "preemptive_pct": 78.1,
+    "safety_override_pct": 73.5,
+    "per_chemical_kg": {
+      "AQUATREAT-2501": 1956.83,
+      "AQUATREAT-1196": 6545.52,
+      "AQUATREAT-2150": 699.97,
+      "AQUATREAT-3331": 240.0,
+      "AQUATREAT-399": 240.0,
+      "AQUATREAT-4612": 1124.21,
+      "AQUATREAT-6625": 750.03
+    }
+  },
+  "chemical_adequacy": {
+    "AQUATREAT-2501": {
+      "ADEQUATE": 86.4,
+      "LOW": 2.2,
+      "CRITICAL": 11.5,
+      "OVERDOSED": 0.0
+    },
+    "AQUATREAT-1196": {
+      "ADEQUATE": 80.0,
+      "LOW": 4.0,
+      "CRITICAL": 16.0,
+      "OVERDOSED": 0.0
+    },
+    "AQUATREAT-2150": {
+      "ADEQUATE": 83.9,
+      "LOW": 4.3,
+      "CRITICAL": 11.8,
+      "OVERDOSED": 0.0
+    },
+    "AQUATREAT-3331": {
+      "ADEQUATE": 0.0,
+      "LOW": 100.0,
+      "CRITICAL": 0.0,
+      "OVERDOSED": 0.0
+    },
+    "AQUATREAT-399": {
+      "ADEQUATE": 0.0,
+      "LOW": 100.0,
+      "CRITICAL": 0.0,
+      "OVERDOSED": 0.0
+    },
+    "AQUATREAT-4612": {
+      "ADEQUATE": 52.3,
+      "LOW": 32.4,
+      "CRITICAL": 15.2,
+      "OVERDOSED": 0.0
+    },
+    "AQUATREAT-6625": {
+      "ADEQUATE": 81.5,
+      "LOW": 7.5,
+      "CRITICAL": 11.0,
+      "OVERDOSED": 0.0
+    }
+  },
+  "dashboard_final_state": {
+    "status": "RUNNING",
+    "cycle": 5614,
+    "uptime_hours": 467.8333333333333,
+    "sensors": {
+      "pH": 23.333333333333336,
+      "conductivity": 0.0,
+      "temperature": 36.0765997644871,
+      "ORP": 614.2635778698786
+    },
+    "indices": {
+      "LSI": 5.0,
+      "RSI": 2.0
+    },
+    "risk": {
+      "level": "HIGH",
+      "scaling": 1.0,
+      "corrosion": 0.0,
+      "biofouling": 0.15231200314017201,
+      "primary": "scaling",
+      "preemptive": false
+    },
+    "chemicals": {
+      "AQUATREAT-2501": {
+        "estimated_ppm": 3.200590941062564,
+        "target_ppm": 12.0,
+        "status": "CRITICAL",
+        "confidence": 0.4532166666666718
+      },
+      "AQUATREAT-1196": {
+        "estimated_ppm": 6.915481670205458,
+        "target_ppm": 35.0,
+        "status": "CRITICAL",
+        "confidence": 0.4532166666666718
+      },
+      "AQUATREAT-2150": {
+        "estimated_ppm": 1.137530781679127,
+        "target_ppm": 5.0,
+        "status": "CRITICAL",
+        "confidence": 0.4532166666666718
+      },
+      "AQUATREAT-3331": {
+        "estimated_ppm": 1.6959998572109258,
+        "target_ppm": 35.0,
+        "status": "LOW",
+        "confidence": 0.9
+      },
+      "AQUATREAT-399": {
+        "estimated_ppm": 2.1556584819153772,
+        "target_ppm": 30.0,
+        "status": "LOW",
+        "confidence": 0.9
+      },
+      "AQUATREAT-4612": {
+        "estimated_ppm": 0.5900894924249499,
+        "target_ppm": 4.0,
+        "status": "CRITICAL",
+        "confidence": 0.4532166666666718
+      },
+      "AQUATREAT-6625": {
+        "estimated_ppm": 0.827584928311502,
+        "target_ppm": 4.0,
+        "status": "CRITICAL",
+        "confidence": 0.4532166666666718
+      }
+    },
+    "dosing": {
+      "AQUATREAT-2501": 0.8333,
+      "AQUATREAT-1196": 2.0833,
+      "AQUATREAT-2150": 0.25,
+      "AQUATREAT-4612": 0.25,
+      "AQUATREAT-6625": 0.25
+    },
+    "blowdown": 0.0,
+    "cost_today_inr": 146345.47412412104,
+    "safety": {
+      "overrides": 0,
+      "emergency_stop": false,
+      "pid_active": false
+    },
+    "water_balance": {
+      "CoC": 1.0,
+      "evaporation_m3_hr": 121.29199119890679,
+      "blowdown_m3_hr": 1212.919911989068,
+      "makeup_m3_hr": 1334.4919031879747
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pdftotext '/c/Users/choks/Downloads/TGF/AI/docs/CORE IDEA\\(TGF\\).pdf' -)",
+      "Bash(pdftotext \"/c/Users/choks/Downloads/TGF/AI/docs/Scientific Study''''s Summary \\(TGF\\).pdf\" -)",
+      "Bash(pdftotext '/c/Users/choks/Downloads/TGF/AI/docs/Autonomous Cooling Tower Water Treatment System_ Complete Hardware Implementation Guide for India.pdf' -)",
+      "Bash(ls -lh /c/Users/choks/Downloads/TGF/AI/docs/*.pdf)",
+      "Read(//c/Users/choks/Downloads/TGF/AI/**)",
+      "Bash(pdftotext '/c/Users/choks/Downloads/TGF/AI/docs/Scientific Study - TGF.pdf' -)",
+      "Bash(pdftotext '/c/Users/choks/Downloads/TGF/AI/docs/MVP Latest AI Arch.pdf' -)",
+      "Bash(pdftotext \"/c/Users/choks/Downloads/TGF/AI/docs/MVP Latest AI Arch.pdf\" /tmp/mvp_arch.txt)",
+      "Read(//tmp/**)",
+      "Bash(ls -la /c/Users/choks/Downloads/TGF/AI/*.py)",
+      "Bash(find /c/Users/choks/Downloads/TGF/AI -iname *business* -o -iname *market* -o -iname *investor* -o -iname *pitch* -o -iname *roi*)",
+      "Bash(ls -la /c/Users/choks/Downloads/TGF/AI/*.md)",
+      "Bash(find c:UserschoksDownloadsTGFAI -type f -name README*)",
+      "Bash(find c:UserschoksDownloadsTGFAI -type f \\\\\\(-name *.py -o -name *.md \\\\\\) -path */research/*)",
+      "Bash(wc -l \"/c/Users/choks/Downloads/TGF/AI/Misc/TGF_TRUE_MVP_Architecture.md\" \"/c/Users/choks/Downloads/TGF/AI/Misc/TGF_MVP_Architecture_Document \\(1\\).md\")",
+      "Bash(find c:UserschoksDownloadsTGFAI -type f -name *.pkl -o -name *.joblib -o -name *.pt -o -name *.pth)",
+      "Bash(grep -r \"hardness\\\\|R.*squared\\\\|0\\\\.37\" c:UserschoksDownloadsTGFAI --include=*.py --include=*.md)",
+      "Bash(grep -r \"R.*squared\\\\|r-squared\\\\|r2.*score\\\\|ML.*predict\\\\|regression\" c:UserschoksDownloadsTGFAI --include=*.md)",
+      "Bash(find c:UserschoksDownloadsTGFAI -type f \\\\\\(-name *.txt -o -name *.md \\\\\\))",
+      "Bash(xargs grep:*)",
+      "Bash(ls -1 c:UserschoksDownloadsTGFAIMisc*.pdf)",
+      "Bash(find c:UserschoksDownloadsTGFAIresearch -name *.py)",
+      "Bash(grep -r \"R.*0\\\\.37\\\\|R2.*0\\\\.37\\\\|alkalinity\\\\|RF\\\\|random.*forest\\\\|multi.*output\" c:UserschoksDownloadsTGFAI --include=*.py)",
+      "Bash(ls -la .gitignore)",
+      "Bash(cat .gitignore)",
+      "Bash(git switch *)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(echo \"--- commit exit code: $? ---\")"
+    ]
+  }
+}

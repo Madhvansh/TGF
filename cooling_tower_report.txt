@@ -1,0 +1,48 @@
+
+================================================================================
+                    COOLING TOWER WATER QUALITY MONITORING REPORT
+================================================================================
+
+EXECUTIVE SUMMARY
+-----------------
+Analysis Date: 2025-09-12 17:18:38
+Total Samples Analyzed: 170
+Anomaly Detection Rate: 5.29%
+Model Accuracy: 5.29%
+
+SYSTEM STATUS
+-------------
+✅ System operating within acceptable parameters.
+
+CRITICAL PARAMETERS REQUIRING ATTENTION
+----------------------------------------
+
+pH:
+  - Total Violations: 145
+  - Critical: 2, Warning: 143, Minor: 0
+Turbidity:
+  - Total Violations: 12
+  - Critical: 4, Warning: 1, Minor: 7
+TSS:
+  - Total Violations: 69
+  - Critical: 17, Warning: 9, Minor: 43
+FRC:
+  - Total Violations: 154
+  - Critical: 143, Warning: 11, Minor: 0
+Magnesium Hardness:
+  - Total Violations: 27
+  - Critical: 0, Warning: 10, Minor: 17
+Ortho PO4:
+  - Total Violations: 185
+  - Critical: 179, Warning: 6, Minor: 0
+P Alkalinity:
+  - Total Violations: 17
+  - Critical: 17, Warning: 0, Minor: 0
+
+OPERATIONAL RECOMMENDATIONS
+------------------------------
+1. ✅ System operating within acceptable parameters.
+2. ⚠️ Biocide levels outside range (154 instances). Adjust biocide program.
+3. ⚠️ pH violations detected (145 instances). Adjust acid/alkali dosing.
+
+================================================================================
