@@ -14,8 +14,8 @@ anomaly detection.
 import math
 import logging
 from collections import deque
-from typing import Dict, List, Tuple, Optional, Any
-from dataclasses import dataclass, field
+from typing import Dict, List, Tuple
+from dataclasses import dataclass
 
 import numpy as np
 import torch
@@ -405,7 +405,6 @@ class MomentAnomalyDetector:
                 arr = np.nan_to_num(arr, nan=0.0, posinf=0.0, neginf=0.0)
 
                 # Normalize
-                mean = arr[mask_arr > 0].mean() if mask_arr.sum() > 0 else 0
                 std = arr[mask_arr > 0].std() if mask_arr.sum() > 0 else 1
                 if std < 1e-8:
                     std = 1.0

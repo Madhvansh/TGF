@@ -16,15 +16,14 @@ Layers of protection:
 """
 import numpy as np
 from dataclasses import dataclass
-from typing import Dict, Optional, Tuple
+from typing import Dict, Tuple
 import logging
-import time
 
 from config.tower_config import (
-    TowerConfig, ChemicalProduct, DosingMode, ChemicalFunction,
+    TowerConfig, DosingMode, ChemicalFunction,
     OperatingLimits, DEFAULT_LIMITS
 )
-from core.physics_engine import WaterChemistry, PhysicsEngine
+from core.physics_engine import WaterChemistry
 from core.mpc_optimizer import DosingDecision
 
 logger = logging.getLogger(__name__)
@@ -410,7 +409,6 @@ class SafetyLayer:
         ph_output = self.pid_ph.update(chemistry.ph, dt_hours)
         # pH too low → need more alkalinity/inhibitor
         # pH too high → need less (or acid)
-        ph_deficit = abs(self.limits.ph_target - chemistry.ph)
         
         # ORP PID → biocide
         orp_output = self.pid_orp.update(chemistry.orp_mv, dt_hours)

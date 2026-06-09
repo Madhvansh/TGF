@@ -20,10 +20,11 @@ Model: amazon/chronos-t5-base (200M params, best accuracy/speed tradeoff)
        amazon/chronos-t5-small (46M params, for edge/RPi deployment)
 """
 import numpy as np
-from dataclasses import dataclass, field
-from typing import Dict, List, Optional, Tuple
+from dataclasses import dataclass
+from typing import Dict, List, Optional
 from collections import deque
 import logging
+import math
 import time
 
 logger = logging.getLogger(__name__)
@@ -358,8 +359,7 @@ class ChronosForecaster:
         # Compute level, trend, and volatility from recent history
         recent = np.array(history[-min(288, len(history)):])  # Last 24h
         
-        # Level: exponential moving average
-        alpha = 0.3
+        # Level: most recent value (EMA not yet implemented)
         level = recent[-1]
         
         # Trend: recent slope (per 5-min step)
@@ -436,7 +436,3 @@ class ChronosForecaster:
             param: self.history[param][-1] if self.history[param] else 0.0
             for param in self.FORECAST_PARAMS
         }
-
-
-# Need math import for fallback
-import math

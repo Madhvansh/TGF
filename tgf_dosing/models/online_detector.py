@@ -9,7 +9,7 @@ with no retraining — truly online learning.
 Score range: 0.0 (normal) to 1.0 (anomalous).
 """
 import logging
-from typing import Dict, Optional
+from typing import Dict
 
 logger = logging.getLogger(__name__)
 

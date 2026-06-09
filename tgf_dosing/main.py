@@ -32,8 +32,6 @@ import time
 import json
 import logging
 import signal
-from pathlib import Path
-from datetime import datetime
 
 # Fix Windows console encoding
 if sys.platform == 'win32':
@@ -48,7 +46,7 @@ from core.dosing_controller import DosingController
 from core.cascade_detector import CascadeDetector
 from core.explainer import DosingExplainer
 from core.virtual_sensor import VirtualSensor
-from infrastructure.data_ingestion import DataIngestionPipeline, SensorReading
+from infrastructure.data_ingestion import DataIngestionPipeline
 from infrastructure.anomaly_detector import AnomalyDetector
 from infrastructure.drift_detector import DriftDetector
 from infrastructure.data_store import DataStore
@@ -238,7 +236,7 @@ class TGFApplication:
             "WARNING": "🟡",
             "INFO": "ℹ️",
         }
-        icon = severity_icons.get(alert.severity, "❓")
+        icon = severity_icons.get(alert.severity, "❓")  # noqa: F841 (reserved for future external notification)
         # Already logged by AlertManager, but we could add external notification here
         # Future: SMS, email, webhook, Slack integration
     
@@ -775,30 +773,30 @@ def print_report(report: dict):
     print(f"  Runtime: {sim['elapsed_seconds']}s ({sim['cycles_per_second']} cycles/sec)")
     
     wc = report["water_chemistry"]
-    print(f"\n  ── Water Chemistry ──")
+    print("\n  ── Water Chemistry ──")
     print(f"  LSI: {wc['LSI']['mean']:.2f} ± {wc['LSI']['std']:.2f}")
     print(f"    Scaling (LSI>1.5):    {wc['LSI']['pct_scaling']:.1f}%")
     print(f"    Corrosive (LSI<-1.0): {wc['LSI']['pct_corrosive']:.1f}%")
     print(f"    Optimal:              {wc['LSI']['pct_optimal']:.1f}%")
     
     risk = report["risk_distribution"]
-    print(f"\n  ── Risk Distribution ──")
+    print("\n  ── Risk Distribution ──")
     for level in ["LOW", "MODERATE", "HIGH", "CRITICAL"]:
         bar = "█" * int(risk.get(level, 0) / 2)
         print(f"    {level:10s}: {risk.get(level, 0):5.1f}% {bar}")
     
     dosing = report["dosing"]
-    print(f"\n  ── Dosing Performance ──")
+    print("\n  ── Dosing Performance ──")
     print(f"  Total cost: ₹{dosing['total_chemical_cost_inr']:,.0f}")
     print(f"  Daily avg:  ₹{dosing['daily_avg_cost_inr']:,.0f}/day")
     print(f"  Preemptive: {dosing['preemptive_pct']:.1f}% of decisions")
     print(f"  Safety overrides: {dosing['safety_override_pct']:.1f}%")
     
-    print(f"\n  ── Chemical Usage (total kg) ──")
+    print("\n  ── Chemical Usage (total kg) ──")
     for name, kg in dosing["per_chemical_kg"].items():
         print(f"    {name:25s}: {kg:8.2f} kg")
     
-    print(f"\n  ── Chemical Adequacy ──")
+    print("\n  ── Chemical Adequacy ──")
     for name, status in report["chemical_adequacy"].items():
         adequate = status.get("ADEQUATE", 0)
         low = status.get("LOW", 0)
@@ -806,19 +804,19 @@ def print_report(report: dict):
         print(f"    {name:25s}: OK={adequate:5.1f}% LOW={low:5.1f}% CRIT={critical:5.1f}%")
     
     ad = report["anomaly_detection"]
-    print(f"\n  ── Anomaly Detection ──")
+    print("\n  ── Anomaly Detection ──")
     print(f"  Total anomalies: {ad['total_anomalies']}")
     print(f"  Anomaly rate: {ad['anomaly_rate_pct']:.2f}%")
     
     alerts = report["alerts"]
-    print(f"\n  ── Alert Summary ──")
+    print("\n  ── Alert Summary ──")
     print(f"  Created: {alerts['total_created']}")
     print(f"  Deduplicated: {alerts['total_deduplicated']}")
     print(f"  Auto-resolved: {alerts['total_auto_resolved']}")
     print(f"  Active: {alerts['active_count']}")
     
     ing = report["ingestion"]
-    print(f"\n  ── Data Ingestion ──")
+    print("\n  ── Data Ingestion ──")
     print(f"  Rows processed: {ing['rows_processed']}")
     print(f"  Lab readings: {ing['lab_readings_available']}")
     synth = ing['missing_primary_sensors']
@@ -995,7 +993,7 @@ def main():
         logger.info(f"  Optimal LSI: {report['water_chemistry']['LSI']['pct_optimal']:.1f}%")
         logger.info(f"  Cost Savings: Rs.{savings:,.0f} ({savings/max(app.roi_cumulative_baseline,1)*100:.1f}%)")
         logger.info(f"  Anomalies Detected: {report['anomaly_detection']['total_anomalies']}")
-        logger.info(f"  Safety Violations: 0")
+        logger.info("  Safety Violations: 0")
         logger.info("=" * 54)
 
     # If API is running, keep alive

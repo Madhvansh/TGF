@@ -15,15 +15,14 @@ Calibrated by:
   - Bayesian updating of decay constants
 """
 import math
-import numpy as np
-from dataclasses import dataclass, field
-from typing import Dict, Optional, List, Tuple
+from dataclasses import dataclass
+from typing import Dict, Tuple
 from collections import deque
 import logging
 import time
 
 from config.tower_config import (
-    TowerConfig, ChemicalProduct, DosingMode, ChemicalFunction, OperatingLimits
+    TowerConfig, ChemicalProduct, DosingMode, ChemicalFunction
 )
 
 logger = logging.getLogger(__name__)
