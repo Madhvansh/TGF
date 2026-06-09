@@ -9,8 +9,7 @@ Every dosing decision gets an audit-trail-ready explanation:
  (LSI=1.8, contribution: 72%), conductivity elevated (2800 uS/cm, 18%)"
 """
 import logging
-import numpy as np
-from typing import Dict, Optional, List, Tuple
+from typing import Dict, List, Tuple
 
 logger = logging.getLogger(__name__)
 

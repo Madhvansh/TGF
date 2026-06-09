@@ -15,7 +15,7 @@ Left-to-right only — can't jump states.
 import logging
 import numpy as np
 from collections import deque
-from typing import Optional, Tuple, List, Dict
+from typing import Optional, Dict
 
 logger = logging.getLogger(__name__)
 

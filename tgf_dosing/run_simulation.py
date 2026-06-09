@@ -23,19 +23,13 @@ import numpy as np
 import json
 import logging
 import time
-from pathlib import Path
 from datetime import datetime
 
 # Add parent to path
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from config.tower_config import AQUATECH_850_TPD, DEFAULT_LIMITS
-from core.physics_engine import PhysicsEngine, WaterChemistry
-from core.chemical_tracker import ChemicalResidualTracker
-from core.chronos_forecaster import ChronosForecaster
-from core.mpc_optimizer import MPCDosingOptimizer, DosingDecision
-from core.safety_layer import SafetyLayer
-from core.dosing_controller import DosingController, ControlCycleResult
+from core.dosing_controller import DosingController
 
 # Logging setup
 logging.basicConfig(
@@ -51,9 +45,6 @@ def load_and_prepare_data(csv_path: str) -> pd.DataFrame:
     logger.info(f"Loading data from {csv_path}")
     df = pd.read_csv(csv_path)
     logger.info(f"  Raw samples: {len(df)}")
-    
-    # Required columns for simulation
-    required = ['pH', 'TDS_ppm', 'Conductivity_uS_cm']
     
     # Check available columns
     available = {col: df[col].notna().sum() for col in df.columns}
@@ -341,7 +332,7 @@ def print_report(report: dict):
     print(f"  Runtime: {sim['elapsed_seconds']}s ({sim['cycles_per_second']} cycles/sec)")
     
     wc = report["water_chemistry"]
-    print(f"\n  --- Water Chemistry ---")
+    print("\n  --- Water Chemistry ---")
     print(f"  LSI: {wc['LSI']['mean']:.2f} ± {wc['LSI']['std']:.2f} "
           f"[{wc['LSI']['min']:.2f} to {wc['LSI']['max']:.2f}]")
     print(f"    Scaling (LSI>1.5):    {wc['LSI']['pct_scaling']:.1f}%")
@@ -350,23 +341,23 @@ def print_report(report: dict):
     print(f"  RSI: {wc['RSI']['mean']:.2f} ± {wc['RSI']['std']:.2f}")
     
     risk = report["risk_distribution"]
-    print(f"\n  --- Risk Distribution ---")
+    print("\n  --- Risk Distribution ---")
     for level in ["LOW", "MODERATE", "HIGH", "CRITICAL"]:
         bar = "█" * int(risk.get(level, 0) / 2)
         print(f"    {level:10s}: {risk.get(level, 0):5.1f}% {bar}")
     
     dosing = report["dosing"]
-    print(f"\n  --- Dosing Performance ---")
+    print("\n  --- Dosing Performance ---")
     print(f"  Total cost: ₹{dosing['total_chemical_cost_inr']:,.0f}")
     print(f"  Daily avg:  ₹{dosing['daily_avg_cost_inr']:,.0f}/day")
     print(f"  Preemptive: {dosing['preemptive_pct']:.1f}% of decisions")
     print(f"  Safety overrides: {dosing['safety_override_pct']:.1f}%")
     
-    print(f"\n  --- Chemical Usage (total kg) ---")
+    print("\n  --- Chemical Usage (total kg) ---")
     for name, kg in dosing["per_chemical_kg"].items():
         print(f"    {name:25s}: {kg:8.2f} kg")
     
-    print(f"\n  --- Chemical Adequacy ---")
+    print("\n  --- Chemical Adequacy ---")
     for name, status in report["chemical_adequacy"].items():
         adequate = status.get("ADEQUATE", 0)
         low = status.get("LOW", 0)

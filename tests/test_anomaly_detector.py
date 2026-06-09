@@ -3,13 +3,12 @@ Unit tests for AnomalyDetector.
 """
 import os
 import sys
-import time
 import pytest
 
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, PROJECT_ROOT)
 
-from tgf_dosing.infrastructure.anomaly_detector import AnomalyDetector
+from tgf_dosing.infrastructure.anomaly_detector import AnomalyDetector  # noqa: E402
 
 
 @pytest.fixture

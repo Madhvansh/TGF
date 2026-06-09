@@ -21,7 +21,7 @@ import os
 import logging
 import pickle
 import numpy as np
-from typing import Optional, Tuple, Dict
+from typing import Tuple, Dict
 from collections import deque
 
 logger = logging.getLogger(__name__)

@@ -17,18 +17,17 @@ Architecture:
 - Re-optimize every control cycle (5 minutes)
 """
 import numpy as np
-from scipy.optimize import minimize, differential_evolution
-from dataclasses import dataclass, field
-from typing import Dict, List, Optional, Tuple
+from scipy.optimize import minimize
+from dataclasses import dataclass
+from typing import Dict, List, Tuple
 import logging
-import math
 
 from config.tower_config import (
-    TowerConfig, ChemicalProduct, DosingMode, 
-    ChemicalFunction, OperatingLimits, DEFAULT_LIMITS
+    TowerConfig, DosingMode, 
+    OperatingLimits, DEFAULT_LIMITS
 )
 from core.physics_engine import WaterChemistry, RiskAssessment, PhysicsEngine
-from core.chemical_tracker import ChemicalResidualTracker, TrackerSnapshot
+from core.chemical_tracker import ChemicalResidualTracker
 from core.chronos_forecaster import SystemForecast
 
 logger = logging.getLogger(__name__)
@@ -190,8 +189,7 @@ class MPCDosingOptimizer:
         
         Returns: (doses_dict, blowdown_fraction, cost, converged)
         """
-        n_vars = self.n_chemicals + 1  # chemicals + blowdown
-        
+
         # Bounds for each variable
         bounds = []
         for name in self.continuous_chemicals:
@@ -381,7 +379,6 @@ class MPCDosingOptimizer:
                         (self.limits.orp_min_mv - orp_6h) / 100) ** 2
         
         # ---- 7. Blowdown cost ----
-        evap = self.physics.estimate_evaporation_rate(chemistry.temperature_c)
         bd_rate = blowdown_frac * self.limits.max_blowdown_rate_m3_per_hr
         total_cost += self.w_blowdown * bd_rate  # Linear cost for water
         

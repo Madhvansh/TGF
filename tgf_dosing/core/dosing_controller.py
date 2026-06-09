@@ -8,13 +8,10 @@ Main integration class that orchestrates the complete control loop:
 
 This is the top-level controller that runs every 5 minutes.
 """
-import numpy as np
-from dataclasses import dataclass, field
-from typing import Dict, List, Optional, Tuple
-from collections import deque
+from dataclasses import dataclass
+from typing import Dict, List, Optional
 import logging
 import time
-import json
 
 from config.tower_config import (
     TowerConfig, OperatingLimits, DEFAULT_LIMITS, AQUATECH_850_TPD

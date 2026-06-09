@@ -24,17 +24,16 @@ Endpoints:
     GET  /api/charts/risk           - Risk distribution counts
 """
 import json
-import time
 import logging
 import threading
-from typing import Optional, Dict, Any
+from typing import Optional, Any
 
 logger = logging.getLogger(__name__)
 
 # Try to import FastAPI, fall back gracefully
 try:
     from fastapi import FastAPI, HTTPException, Query
-    from fastapi.responses import HTMLResponse, JSONResponse
+    from fastapi.responses import HTMLResponse
     from fastapi.middleware.cors import CORSMiddleware
     import uvicorn
     FASTAPI_AVAILABLE = True
@@ -1013,7 +1012,8 @@ def create_api(controller=None, data_store=None, alert_manager=None,
     async def export_readings_csv():
         """Export sensor readings as CSV download."""
         from fastapi.responses import StreamingResponse
-        import io, csv
+        import io
+        import csv
         store = app.state.store
         if not store:
             raise HTTPException(503, "No data store")
@@ -1036,7 +1036,8 @@ def create_api(controller=None, data_store=None, alert_manager=None,
     async def export_decisions_csv():
         """Export dosing decisions as CSV download."""
         from fastapi.responses import StreamingResponse
-        import io, csv
+        import io
+        import csv
         store = app.state.store
         if not store:
             raise HTTPException(503, "No data store")
@@ -1059,7 +1060,8 @@ def create_api(controller=None, data_store=None, alert_manager=None,
     async def export_anomalies_csv():
         """Export anomaly events as CSV download."""
         from fastapi.responses import StreamingResponse
-        import io, csv
+        import io
+        import csv
         store = app.state.store
         if not store:
             raise HTTPException(503, "No data store")

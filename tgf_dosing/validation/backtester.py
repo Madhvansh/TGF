@@ -26,7 +26,7 @@ import json
 import logging
 import argparse
 import numpy as np
-from typing import Dict, List, Optional
+from typing import Dict, List
 
 logger = logging.getLogger(__name__)
 
@@ -132,8 +132,7 @@ class Backtester:
     def __init__(self, csv_path: str, tower_config=None):
         self.csv_path = csv_path
         sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
-        from config.tower_config import AQUATECH_850_TPD, DEFAULT_LIMITS
-        from core.dosing_controller import DosingController
+        from config.tower_config import AQUATECH_850_TPD
 
         self.tower = tower_config or AQUATECH_850_TPD
 

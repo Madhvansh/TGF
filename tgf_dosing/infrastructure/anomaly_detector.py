@@ -27,7 +27,7 @@ Each detection outputs a score 0-1 and a classification:
     CRITICAL → trigger safety layer, alert immediately
 """
 import numpy as np
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from typing import Dict, List, Optional, Tuple
 from collections import deque
 import logging

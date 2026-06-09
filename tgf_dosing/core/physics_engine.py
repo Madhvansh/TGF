@@ -9,7 +9,6 @@ For MVP: Hardness and Alkalinity are estimated from CoC × makeup water quality
 This is periodically calibrated with lab results.
 """
 import math
-import numpy as np
 from dataclasses import dataclass
 from typing import Optional, Tuple, Dict
 import logging
