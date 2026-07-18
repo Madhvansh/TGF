@@ -1,3 +1,9 @@
+# Water-chemistry indices (LSI / RSI / pHs), extracted from this project into a
+# standalone, dependency-free library: https://github.com/Madhvansh/cooling-tower-chem
+# The physics engine uses it as the single source of truth when installed, and
+# falls back to a vendored copy otherwise. Uncomment once it is on PyPI:
+# cooling-tower-chem>=0.1.0
+
 # Core
 numpy>=1.24
 pandas>=2.0

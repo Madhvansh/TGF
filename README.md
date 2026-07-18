@@ -76,6 +76,8 @@ Granger-causality state machine detecting failure chains: corrosion &rarr; parti
 
 Langelier Saturation Index (LSI) and Ryznar Stability Index (RSI) from classical water chemistry equations. Cycles of Concentration (CoC) estimated from conductivity. Virtual sensor provides physics-informed ML hybrid estimates of hardness and alkalinity when lab data is unavailable.
 
+The water-chemistry index math has been extracted into a standalone, dependency-free library — **[cooling-tower-chem](https://github.com/Madhvansh/cooling-tower-chem)** (LSI, RSI, Puckorius PSI, Larson-Skold, cooling-tower water balance) — which TGF now uses as its single source of truth for these calculations.
+
 ### Safety Layer
 
 5-tier defense-in-depth:

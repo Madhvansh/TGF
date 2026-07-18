@@ -15,6 +15,11 @@ import logging
 
 logger = logging.getLogger(__name__)
 
+try:  # Prefer the standalone library that was extracted from this engine.
+    from cooling_tower_chem import ph_of_saturation as _library_phs
+except ImportError:  # pragma: no cover - vendored fallback keeps TGF self-contained
+    _library_phs = None
+
 
 @dataclass
 class WaterChemistry:
@@ -284,7 +289,15 @@ class PhysicsEngine:
             logger.warning("Invalid inputs for pHs calculation: "
                          f"Ca={calcium_hardness_ppm}, Alk={total_alkalinity_ppm}, TDS={tds_ppm}")
             return 7.0  # Neutral fallback
-        
+
+        # Delegate to the standalone cooling-tower-chem library when available
+        # (identical formula; single source of truth). Falls back to the
+        # vendored implementation below if the package is not installed.
+        if _library_phs is not None:
+            return _library_phs(
+                temperature_c, tds_ppm, calcium_hardness_ppm, total_alkalinity_ppm
+            )
+
         temp_k = temperature_c + 273.15
         
         # A: TDS factor
