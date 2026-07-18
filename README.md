@@ -1,6 +1,6 @@
-# TGF -- Autonomous Cooling Tower Water Treatment
+# TGF -- Cooling-Tower Water-Treatment Control (research / simulation toolkit)
 
-Physics-informed MPC + foundation-model anomaly detection for Indian industrial cooling towers. Replaces manual chemical dosing with a 5-minute autonomous control loop.
+Physics-informed MPC + foundation-model anomaly detection for industrial cooling towers. A simulation and backtest toolkit for autonomous chemical dosing, designed around a 5-minute control loop and **validated on historical plant water-analysis data**. Hardware integration and live deployment are on the roadmap -- nothing here has yet dosed a physical tower.
 
 ![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue)
 ![License](https://img.shields.io/badge/license-Apache%202.0-green)
@@ -12,7 +12,7 @@ India's cooling towers lose 2--5% of operational capacity annually to scaling, c
 
 ## What TGF Does
 
-TGF reads pH, conductivity, temperature, and ORP every 5 minutes, detects anomalies using a 385M-parameter foundation model, forecasts parameter trajectories 24 hours ahead, and optimizes chemical doses using Model Predictive Control -- all with a 5-tier safety layer that guarantees hard constraints.
+By design, TGF ingests water parameters (pH and conductivity, plus temperature and ORP where instrumented) on a 5-minute loop, detects anomalies using a 385M-parameter foundation model, forecasts parameter trajectories 24 hours ahead, and optimizes chemical doses using Model Predictive Control -- all with a 5-tier safety layer that enforces hard limits by clamping. Validation to date uses historical lab water-analysis records (see the backtest results below), not live 5-minute telemetry; the released datasets carry pH and conductivity but not temperature or ORP.
 
 ```mermaid
 graph TD
@@ -34,17 +34,17 @@ graph TD
     M --> N[FastAPI Dashboard: 18 Endpoints]
 ```
 
-## Results
+## Backtest results (simulation on historical data -- no field deployment yet)
 
-Validated on 5,614 sensor readings from a real DCM (Dalmia Cement) cooling tower, 2013--2025:
+These figures come from **replaying 5,614 historical water-analysis records through the controller in simulation**, not from operating a live tower. The records are periodic lab reports (labelled roughly 2012--2025, with gaps; per-row timestamps were not preserved in the released CSV) consolidated across multiple industrial cooling towers at DCM and Shriram Alkali & Chemicals plants in India, used with the operators' permission. The manual-dosing baseline is **modeled, not measured**, and no dosing has been applied to physical equipment.
 
-| Metric | Value |
+| Metric (backtest) | Value |
 |--------|-------|
 | Cycles in optimal LSI range | **86.2%** |
-| Critical risk cycles | **0%** |
+| Critical-risk cycles | **0%** |
 | Preemptive dosing rate | **78%** |
-| Chemical cost savings vs manual | **16.7%** |
-| Safety violations | **0 / 5,614 cycles** |
+| Modeled chemical savings vs manual baseline | **16.7%** |
+| Constraint violations (dose clamps exceeded) | **0 / 5,614** |
 
 ## Technical Architecture
 
@@ -94,13 +94,13 @@ Mass balance for 7 Aquatech chemicals with Arrhenius temperature-dependent decay
 
 ## Why MPC, Not Reinforcement Learning
 
-1. **Works with 5K samples** -- RL needs millions of interactions
-2. **Hard safety constraints** -- mathematically guaranteed, not soft penalties
+1. **Works with ~5K samples** -- RL needs millions of interactions
+2. **Hard safety constraints** -- enforced by clamping, not soft penalties
 3. **Explainable** -- "dosing because LSI forecast at +1.8 in 6 hours"
-4. **Production-ready in weeks** -- RL needs months of simulation environment development
-5. **Zero risk of constraint violation** during exploration
+4. **Faster to a working prototype** -- RL needs months of simulation-environment development
+5. **No constraint violations in backtest** during exploration
 
-With 5,614 real sensor readings and hard safety requirements for industrial deployment, MPC was the principled engineering choice.
+With ~5,600 historical water-analysis records and hard safety requirements for eventual industrial deployment, MPC was the principled engineering choice.
 
 ## Quick Start
 
