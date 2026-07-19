@@ -1,6 +1,13 @@
-# TGF -- Cooling-Tower Water-Treatment Control (research / simulation toolkit)
+# TGF -- Cooling-Tower Water-Treatment Control
 
-Physics-informed MPC + foundation-model anomaly detection for industrial cooling towers. A simulation and backtest toolkit for autonomous chemical dosing, designed around a 5-minute control loop and **validated on historical plant water-analysis data**. Hardware integration and live deployment are on the roadmap -- nothing here has yet dosed a physical tower.
+Physics-informed MPC + foundation-model anomaly detection for industrial cooling towers. **In operational use since 2025 as an advisory system at eight cooling towers across two Indian plants** -- DCM Shriram Alkali and Atul Ltd (named with permission) -- where operators act on its water-chemistry risk indices, forecasts, and dosing recommendations. Autonomous closed-loop dosing is on the roadmap: TGF advises; it does not yet command dosing hardware.
+
+## Production use
+
+- **Where:** eight industrial cooling towers across two Indian plants (DCM Shriram Alkali and Atul Ltd), named with the operators' permission.
+- **Since:** 2025. TGF was developed against these plants' water-analysis data and open-sourced in 2026.
+- **Mode:** advisory / decision support. Plant teams run TGF's analysis on tower water data and act on its outputs -- LSI/RSI scaling-corrosion risk assessment, anomaly alerts, and forecast-informed dosing recommendations. Humans stay in the loop for every dose.
+- **Boundary (stated plainly):** TGF has not yet been connected to dosing hardware. The closed-loop controller exists and is validated in backtest below; wiring it to pumps on real towers is the roadmap, not the present.
 
 ![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue)
 ![License](https://img.shields.io/badge/license-Apache%202.0-green)
@@ -34,9 +41,9 @@ graph TD
     M --> N[FastAPI Dashboard: 18 Endpoints]
 ```
 
-## Backtest results (simulation on historical data -- no field deployment yet)
+## Backtest results (closed-loop controller, simulated on historical data)
 
-These figures come from **replaying 5,614 historical water-analysis records through the controller in simulation**, not from operating a live tower. The records are periodic lab reports (labelled roughly 2012--2025, with gaps; per-row timestamps were not preserved in the released CSV) consolidated across multiple industrial cooling towers at DCM Shriram Alkali & Chemicals plants in India, used with the operator's permission. The manual-dosing baseline is **modeled, not measured**, and no dosing has been applied to physical equipment.
+The advisory outputs are in production use (see above). The **closed-loop controller** metrics below are a different, stricter claim, and come from **replaying 5,614 historical water-analysis records through the controller in simulation** -- not from autonomous operation. The records are periodic lab reports (labelled roughly 2012--2025, with gaps; per-row timestamps were not preserved in the released CSV) consolidated across multiple cooling towers at DCM Shriram Alkali & Chemicals plants, used with the operator's permission. The manual-dosing baseline is **modeled, not measured**, and TGF has not commanded dosing on physical equipment.
 
 | Metric (backtest) | Value |
 |--------|-------|
