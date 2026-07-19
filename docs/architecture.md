@@ -7,7 +7,7 @@ Layer 5: APPLICATION
     Dashboard (FastAPI + Chart.js) | REST API (18 endpoints) | Alerting
 
 Layer 4: AI / CONTROL
-    MOMENT Anomaly Detection | Chronos-2 Forecasting | MPC Optimizer
+    MOMENT Anomaly Detection | Chronos-T5 Forecasting | MPC Optimizer
 
 Layer 3: COMMUNICATION
     Data Ingestion Pipeline | SQLite Persistence (7 tables, WAL mode)

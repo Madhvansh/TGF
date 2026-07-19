@@ -18,7 +18,7 @@ The TGF dashboard runs on FastAPI at `http://localhost:8000` by default.
 | `/api/alerts/history` | GET | Alert history |
 | `/api/metrics` | GET | System performance metrics |
 | `/api/risk` | GET | Current risk assessment (scaling, corrosion, biofouling) |
-| `/api/forecast` | GET | Sensor forecasts (Chronos-2 predictions) |
+| `/api/forecast` | GET | Sensor forecasts (Chronos-T5 predictions) |
 | `/api/cascade` | GET | Cascade detector state |
 | `/api/config` | GET | Tower configuration |
 | `/api/health` | GET | Health check |

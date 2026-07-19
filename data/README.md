@@ -46,3 +46,9 @@ from **DCM Shriram Alkali** facilities. Reports span
 several towers — including Main Plant CWT, Power Plant CWT, New Plant (X-01 CT),
 850 CT TPD, ECH CT, and OLD/NEW CT units. The `Source_Sheet` column preserves the
 originating report for every row.
+
+## File integrity (SHA-256)
+
+- `Parameters_5K.csv` → `52813db7c3e87c2cc0eb585102f5196f62940985298747b61329df20095846f6`
+- `Parameters_1.csv` → `25da02e17b3c71304b79f4484584d064772cfa6b87202315227f5fab7d6637be`
+- `cooling_tower_dataset_cleaned.csv` → `13704169c616485f6f7026f2914c0ca76ab2e541737c897d0927feb4681c590f`

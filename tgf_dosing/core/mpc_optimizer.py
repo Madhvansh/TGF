@@ -118,7 +118,7 @@ class MPCDosingOptimizer:
         Args:
             current_chemistry: Current sensor readings
             current_residuals: Current chemical residual estimates
-            forecast: Chronos-2 forecast of water quality
+            forecast: Chronos-T5 forecast of water quality
             tracker: Chemical residual tracker
             current_timestamp: Unix timestamp
         

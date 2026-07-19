@@ -2,6 +2,10 @@
 
 Physics-informed MPC + foundation-model anomaly detection for industrial cooling towers. **In operational use since 2025 as an advisory system at eight cooling towers across two Indian plants** -- DCM Shriram Alkali and Atul Ltd (named with permission) -- where operators act on its water-chemistry risk indices, forecasts, and dosing recommendations. Autonomous closed-loop dosing is on the roadmap: TGF advises; it does not yet command dosing hardware.
 
+## Production status & provenance
+
+**Production status (advisory).** TGF is in **advisory production use since 2025** at **eight cooling towers across two Indian plants — DCM Shriram Alkali and Atul Ltd** (named with their permission). Plant teams run TGF on tower water data and act on its **LSI/RSI risk indices, anomaly alerts, and forecast-informed dosing recommendations**; **a human authorizes every dose.** TGF is **not** wired to dosing hardware — the closed-loop controller is validated in **backtest only** (5,614 historical water-analysis records from DCM Shriram Alkali), and autonomous actuation is on the roadmap. TGF depends on [cooling-tower-chem](https://github.com/Madhvansh/cooling-tower-chem) for its water-chemistry indices.
+
 ## Production use
 
 - **Where:** eight industrial cooling towers across two Indian plants (DCM Shriram Alkali and Atul Ltd), named with the operators' permission.
@@ -30,7 +34,7 @@ graph TD
     D -->|No| F[Dosing Controller]
     C --> F
     F --> G[Physics Engine: LSI / RSI / CoC]
-    F --> H[Chronos-2 Forecaster: 24h Ahead]
+    F --> H[Chronos-T5 Forecaster: 24h Ahead]
     F --> I[MPC Optimizer: L-BFGS-B]
     F --> J[Chemical Tracker: 7 Chemicals]
     G --> I
@@ -57,7 +61,7 @@ The advisory outputs are in production use (see above). The **closed-loop contro
 
 ### MPC Optimizer
 
-L-BFGS-B with 24-step receding horizon (2 hours at 5-minute intervals). 10-component cost function balancing chemical cost, scaling/corrosion/biofouling risk, Chronos-2 forecast penalties, CPCB discharge compliance, and rate smoothing. Differential evolution fallback for non-convex cases. Only the first step is executed, then re-optimized next cycle.
+L-BFGS-B with 24-step receding horizon (2 hours at 5-minute intervals). 10-component cost function balancing chemical cost, scaling/corrosion/biofouling risk, Chronos-T5 forecast penalties, CPCB discharge compliance, and rate smoothing. Differential evolution fallback for non-convex cases. Only the first step is executed, then re-optimized next cycle.
 
 ### MOMENT Anomaly Detection
 
@@ -69,11 +73,13 @@ L-BFGS-B with 24-step receding horizon (2 hours at 5-minute intervals). 10-compo
 | TransNAS-TSAD | NAS + Transformer | ~2M | 0.0145 | Evaluated |
 | VTT | Variable Temporal Transformer | ~500K | 0.0203 | Evaluated |
 
+These are internal validation figures; the trained checkpoint and raw artifacts are not yet published, so treat them as indicative rather than independently reproducible.
+
 Detection uses 5 layers: range check, z-score, rate-of-change, cross-parameter correlation, and MOMENT reconstruction error.
 
-### Chronos-2 Forecaster
+### Chronos-T5 Forecaster
 
-Amazon's zero-shot probabilistic forecasting model. Returns p10/p50/p90 quantiles for a 24-hour horizon. Enables preemptive dosing -- treating problems before they manifest. When Chronos-2 predicts pH will exceed 8.5 in 6 hours, the MPC begins scale inhibitor dosing immediately at a lower rate, rather than reacting later at a higher rate.
+Amazon's zero-shot probabilistic forecasting model. Returns p10/p50/p90 quantiles for a 24-hour horizon. Enables preemptive dosing -- treating problems before they manifest. When Chronos-T5 predicts pH will exceed 8.5 in 6 hours, the MPC begins scale inhibitor dosing immediately at a lower rate, rather than reacting later at a higher rate.
 
 ### Cascade Detector
 

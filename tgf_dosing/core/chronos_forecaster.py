@@ -1,9 +1,9 @@
 """
-TGF Chronos-2 Forecasting Engine
+TGF Chronos-T5 Forecasting Engine
 ==================================
 Zero-shot probabilistic forecasting of water quality parameters.
 
-Chronos-2 (Amazon, 2025) is a pre-trained time-series foundation model
+Chronos-T5 (Amazon, 2025) is a pre-trained time-series foundation model
 that generates probabilistic forecasts WITHOUT fine-tuning.
 
 Key advantages over PatchTST for TGF:
@@ -96,7 +96,7 @@ class SystemForecast:
 
 class ChronosForecaster:
     """
-    Chronos-2 based forecasting for TGF water quality parameters.
+    Chronos-T5 based forecasting for TGF water quality parameters.
     
     Architecture:
     - Uses sliding window of recent sensor readings as context
@@ -125,7 +125,7 @@ class ChronosForecaster:
                  device: str = "cpu",
                  num_samples: int = 20):
         """
-        Initialize Chronos-2 forecaster.
+        Initialize Chronos-T5 forecaster.
         
         Args:
             model_size: "tiny", "mini", "small", "base", or "large"
@@ -239,7 +239,7 @@ class ChronosForecaster:
         
         current_time = self.timestamps[-1] if self.timestamps else time.time()
         
-        # Try Chronos-2 first, fall back to statistical
+        # Try Chronos-T5 first, fall back to statistical
         self._load_model()
         
         if self._model_loaded and self._model is not None:
@@ -249,7 +249,7 @@ class ChronosForecaster:
     
     def _forecast_chronos(self, horizons_hours: List[float],
                           current_time: float) -> SystemForecast:
-        """Generate forecast using Chronos-2 model."""
+        """Generate forecast using Chronos-T5 model."""
         import torch
         
         parameter_forecasts = {}
@@ -323,7 +323,7 @@ class ChronosForecaster:
         Statistical fallback forecasting when Chronos is not available.
         Uses exponential smoothing + trend + seasonal decomposition.
         
-        NOT as good as Chronos-2, but functional for testing.
+        NOT as good as Chronos-T5, but functional for testing.
         """
         parameter_forecasts = {}
         
