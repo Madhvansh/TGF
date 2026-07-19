@@ -36,7 +36,7 @@ graph TD
 
 ## Backtest results (simulation on historical data -- no field deployment yet)
 
-These figures come from **replaying 5,614 historical water-analysis records through the controller in simulation**, not from operating a live tower. The records are periodic lab reports (labelled roughly 2012--2025, with gaps; per-row timestamps were not preserved in the released CSV) consolidated across multiple industrial cooling towers at DCM and Shriram Alkali & Chemicals plants in India, used with the operators' permission. The manual-dosing baseline is **modeled, not measured**, and no dosing has been applied to physical equipment.
+These figures come from **replaying 5,614 historical water-analysis records through the controller in simulation**, not from operating a live tower. The records are periodic lab reports (labelled roughly 2012--2025, with gaps; per-row timestamps were not preserved in the released CSV) consolidated across multiple industrial cooling towers at DCM Shriram Alkali & Chemicals plants in India, used with the operator's permission. The manual-dosing baseline is **modeled, not measured**, and no dosing has been applied to physical equipment.
 
 | Metric (backtest) | Value |
 |--------|-------|

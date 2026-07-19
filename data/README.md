@@ -3,7 +3,7 @@
 ## Parameters_5K.csv (Primary Dataset)
 
 - **Source**: monthly cooling-tower water-analysis reports from multiple industrial
-  cooling towers at **DCM** and **Shriram Alkali & Chemicals** plants in India,
+  cooling towers at **DCM Shriram Alkali & Chemicals** plants in India,
   used with the operators' permission.
 - **Date range**: derived from source-report labels, roughly **2012–2025 (with gaps)**.
   Per-row timestamps were not preserved: the `Date` column is populated for only
@@ -42,7 +42,7 @@ populated `Date`) for quick testing.
 ## Data Provenance
 
 Consolidated from ~80 monthly cooling-tower water-analysis report sheets (Excel)
-from **DCM** and **Shriram Alkali & Chemicals (SAC)** facilities. Reports span
+from **DCM Shriram Alkali & Chemicals** facilities. Reports span
 several towers — including Main Plant CWT, Power Plant CWT, New Plant (X-01 CT),
 850 CT TPD, ECH CT, and OLD/NEW CT units. The `Source_Sheet` column preserves the
 originating report for every row.
