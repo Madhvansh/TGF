@@ -43,7 +43,7 @@ graph TD
 
 ## Backtest results (closed-loop controller, simulated on historical data)
 
-The advisory outputs are in production use (see above). The **closed-loop controller** metrics below are a different, stricter claim, and come from **replaying 5,614 historical water-analysis records through the controller in simulation** -- not from autonomous operation. The records are periodic lab reports (labelled roughly 2012--2025, with gaps; per-row timestamps were not preserved in the released CSV) consolidated across multiple cooling towers at DCM Shriram Alkali & Chemicals plants, used with the operator's permission. The manual-dosing baseline is **modeled, not measured**, and TGF has not commanded dosing on physical equipment.
+The advisory outputs are in production use (see above). The **closed-loop controller** metrics below are a different, stricter claim, and come from **replaying 5,614 historical water-analysis records through the controller in simulation** -- not from autonomous operation. The records are periodic lab reports (labelled roughly 2012--2025, with gaps; per-row timestamps were not preserved in the released CSV) consolidated across multiple cooling towers at DCM Shriram Alkali plants, used with the operator's permission. The manual-dosing baseline is **modeled, not measured**, and TGF has not commanded dosing on physical equipment.
 
 | Metric (backtest) | Value |
 |--------|-------|
