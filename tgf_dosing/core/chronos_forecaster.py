@@ -166,7 +166,7 @@ class ChronosForecaster:
             from chronos import ChronosPipeline
             
             model_id = f"amazon/chronos-t5-{self.model_size}"
-            logger.info(f"Loading Chronos-2 model: {model_id}")
+            logger.info(f"Loading Chronos-T5 model: {model_id}")
             
             self._model = ChronosPipeline.from_pretrained(
                 model_id,
@@ -174,7 +174,7 @@ class ChronosForecaster:
                 torch_dtype=torch.float32,
             )
             self._model_loaded = True
-            logger.info(f"Chronos-2 model loaded successfully ({self.model_size})")
+            logger.info(f"Chronos-T5 model loaded successfully ({self.model_size})")
             
         except ImportError:
             logger.warning(
