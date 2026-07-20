@@ -1,7 +1,7 @@
 """
 TGF Alert Manager
 ===================
-Manages alerts, notifications, and escalation for autonomous operation.
+Manages alerts, notifications, and escalation for the advisory dosing control loop (validated in backtest simulation; does not command hardware).
 
 Alert flow:
     AnomalyDetector/SafetyLayer/Controller → AlertManager → DataStore

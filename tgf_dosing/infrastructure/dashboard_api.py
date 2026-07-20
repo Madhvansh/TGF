@@ -50,7 +50,7 @@ except ImportError:
 DASHBOARD_HTML = r"""<!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>TGF - Autonomous Cooling Tower Control</title>
+    <title>TGF &mdash; Cooling Tower Advisory Dashboard</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -154,7 +154,7 @@ DASHBOARD_HTML = r"""<!DOCTYPE html>
 <body>
     <div class="header">
         <div class="header-left">
-            <div><span class="logo">TGF</span> <span class="logo-sub">Autonomous Cooling Tower Control</span></div>
+            <div><span class="logo">TGF</span> <span class="logo-sub">Physics-informed advisory: forecasts, risk indices, dosing recommendations</span></div>
         </div>
         <div style="display:flex;align-items:center;gap:12px;">
             <button id="pause-btn" onclick="togglePause()" style="padding:6px 16px;border-radius:8px;border:1px solid var(--card-border);background:var(--card);color:var(--text);cursor:pointer;font-size:0.8em;font-weight:600;display:none;">Pause</button>
@@ -272,7 +272,7 @@ DASHBOARD_HTML = r"""<!DOCTYPE html>
         </div>
     </div>
 
-    <div class="footer">TGF &mdash; AI-Driven Autonomous Water Treatment &bull; Predictive Dosing with MPC Optimization &bull; Dataset Simulation</div>
+    <div class="footer">TGF &mdash; Physics-Informed Advisory Water Treatment &bull; Predictive Dosing with MPC Optimization &bull; Dataset Simulation</div>
 
 <script>
 // ── Chart.js global config ──
@@ -692,7 +692,7 @@ def create_api(controller=None, data_store=None, alert_manager=None,
         return None
 
     app = FastAPI(
-        title="TGF Autonomous Cooling Tower Control",
+        title="TGF Cooling Tower Advisory Dashboard",
         description="AI-driven predictive dosing system dashboard",
         version="1.0.0-MVP",
     )

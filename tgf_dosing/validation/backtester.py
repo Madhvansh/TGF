@@ -1,8 +1,9 @@
 """
 TGF Backtesting Framework
 ===========================
-Answers "Would this autonomous system have performed better than
-human operators?" — the key investor question.
+Answers "Would this advisory dosing control loop have performed better than
+human operators?" — the key investor question. (Validated in backtest
+simulation only; does not command hardware.)
 
 CRITICAL DESIGN NOTE:
 The previous version compared TGF against (TGF_cost × 1.20) — which is

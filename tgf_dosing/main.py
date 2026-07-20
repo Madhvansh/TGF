@@ -1,7 +1,7 @@
 """
 TGF Main Application
 ======================
-Unified entry point for the complete TGF Autonomous Cooling Tower Control system.
+Unified entry point for the complete TGF advisory dosing control loop (validated in backtest simulation; does not command hardware).
 
 This ties together ALL components:
     Data Ingestion → Anomaly Detection → Physics Engine → Chemical Tracker →
