@@ -5,7 +5,7 @@ build-backend = "setuptools.backends._legacy:_Backend"
 [project]
 name = "tgf-dosing"
 version = "0.1.0"
-description = "Autonomous cooling tower water treatment system"
+description = "Physics-informed advisory system for cooling-tower water treatment: MPC dosing recommendations + foundation-model forecasting"
 readme = "README.md"
 license = {text = "Apache-2.0"}
 requires-python = ">=3.10"
