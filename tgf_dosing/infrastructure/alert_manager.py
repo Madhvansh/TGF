@@ -72,7 +72,7 @@ class Alert:
 
 class AlertManager:
     """
-    Centralized alert management for TGF autonomous control.
+    Centralized alert management for the TGF advisory control loop.
     
     Usage:
         alerts = AlertManager(data_store)

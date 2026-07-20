@@ -80,7 +80,7 @@ signal.signal(signal.SIGTERM, _signal_handler)
 
 class TGFApplication:
     """
-    The complete TGF autonomous control application.
+    The complete TGF advisory control application (simulation-scoped).
     
     This is the production-ready orchestrator that runs the full
     control loop: sensors → AI → dosing → monitoring.
@@ -244,7 +244,7 @@ class TGFApplication:
             max_cycles: int = None,
             speed_multiplier: float = 0.0) -> dict:
         """
-        Run the complete autonomous control loop.
+        Run the complete advisory control loop (backtest simulation).
         
         This is THE main function. It:
         1. Streams sensor data from the CSV
@@ -828,7 +828,7 @@ def print_report(report: dict):
 
 def main():
     parser = argparse.ArgumentParser(
-        description="TGF Autonomous Cooling Tower Control System")
+        description="TGF Cooling Tower Advisory System (simulation)")
     parser.add_argument("--data", default=None,
                        help="Path to Parameters_5K.csv")
     parser.add_argument("--cycles", type=int, default=None,
