@@ -39,6 +39,9 @@ To verify directly: contact the maintainer (choksimac167005@gmail.com), who will
 put evaluators in touch with the plant's utility head and plant manager; they
 have agreed to confirm the deployment on request.
 
+See [EVIDENCE.md](EVIDENCE.md) for a claim-to-artifact index mapping each
+load-bearing README claim to a checkable artifact.
+
 ## Production use
 
 - **Where:** eight industrial cooling towers across two Indian plants (DCM Shriram Alkali and Atul Ltd), named with the operators' permission.
