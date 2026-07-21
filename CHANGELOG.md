@@ -1,11 +1,11 @@
 # Changelog
 
 All notable changes to TGF are recorded here. The format is loosely based on
-[Keep a Changelog](https://keepachangelog.com/). This project does not yet publish
-tagged releases or version numbers, so entries are grouped by date, derived from the
-Git commit history (dates are commit dates).
+[Keep a Changelog](https://keepachangelog.com/). Tagged releases begin at v0.1.0
+(2026-07-21). Earlier entries are grouped by date, derived from the Git commit
+history (dates are commit dates).
 
-## 2026-07-21
+## v0.1.0 — 2026-07-21
 
 ### Added
 - `Deployment verification` README section and a `docs/deployment/` directory
