@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use TGF in your work, please cite it using the metadata below."
+title: "TGF — Cooling-Tower Water-Treatment Control"
+abstract: >-
+  Physics-informed model-predictive control plus foundation-model anomaly detection
+  for industrial cooling-tower water treatment. TGF is an advisory system: it computes
+  water-chemistry risk indices, forecasts parameter trajectories, and produces dosing
+  recommendations for human operators; the closed-loop controller is validated in
+  backtest only.
+type: software
+authors:
+  - family-names: Choksi
+    given-names: Madhvansh
+license: Apache-2.0
+repository-code: "https://github.com/Madhvansh/TGF"
+url: "https://github.com/Madhvansh/TGF"
+keywords:
+  - cooling-tower
+  - water-treatment
+  - model-predictive-control
+  - anomaly-detection
+  - industrial-iot

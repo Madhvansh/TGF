@@ -40,6 +40,13 @@ pytest tests/test_physics_engine.py -v
 pytest tests/test_smoke.py -v
 ```
 
+## Testing Policy
+
+Major new functionality requires tests. Please run the full suite with `pytest`
+before opening a pull request, and add or update tests to cover the behavior you
+change. Pull requests that introduce substantial features without accompanying
+tests will be asked to add them before merge.
+
 ## Making Changes
 
 1. Fork the repository
