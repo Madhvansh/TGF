@@ -1,15 +1,49 @@
 # TGF -- Cooling-Tower Water-Treatment Control
 
-Physics-informed MPC + foundation-model anomaly detection for industrial cooling towers. **In operational use since 2025 as an advisory system at eight cooling towers across two Indian plants** -- DCM Shriram Alkali and Atul Ltd (named with permission) -- where operators act on its water-chemistry risk indices, forecasts, and dosing recommendations. Autonomous closed-loop dosing is on the roadmap: TGF advises; it does not yet command dosing hardware.
+Physics-informed MPC + foundation-model anomaly detection for industrial cooling towers. **In operational use since 2025 as an advisory system at eight cooling towers across two Indian plants** -- DCM Shriram Alkali and Atul Ltd (named with permission) -- where operators act on its water-chemistry risk indices, forecasts, and dosing recommendations (initially maintainer-operated remotely; self-hosted on-site at DCM Shriram Alkali, four towers, since June 2026). Autonomous closed-loop dosing is on the roadmap: TGF advises; it does not yet command dosing hardware.
 
 ## Production status & provenance
 
-**Production status (advisory).** TGF is in **advisory production use since 2025** at **eight cooling towers across two Indian plants — DCM Shriram Alkali and Atul Ltd** (named with their permission). Plant teams run TGF on tower water data and act on its **LSI/RSI risk indices, anomaly alerts, and forecast-informed dosing recommendations**; **a human authorizes every dose.** TGF is **not** wired to dosing hardware — the closed-loop controller is validated in **backtest only** (5,614 historical water-analysis records from DCM Shriram Alkali), and autonomous actuation is on the roadmap. TGF depends on [cooling-tower-chem](https://github.com/Madhvansh/cooling-tower-chem) for its water-chemistry indices.
+**Production status (advisory).** TGF has been in **advisory production use since
+2025** at **eight cooling towers across two Indian plants — DCM Shriram Alkali and
+Atul Ltd** (named with their permission). The engagement began in 2025 with a
+data-gathering phase, after which the maintainer ran TGF remotely on incoming
+plant data and plant teams acted on its outputs; the plants later accessed TGF
+directly. Since **June 2026**, TGF has been **self-hosted on-site at DCM Shriram
+Alkali (four towers)** and runs without maintainer involvement — two
+deployment-confirmation letters document that deployment (see
+[Deployment verification](#deployment-verification)). The **Atul Ltd** deployment
+(four further towers) continues on the same advisory basis and is attested by the
+maintainer; that plant does not issue public confirmations. Plant teams run TGF
+on tower water data and act on its **LSI/RSI risk indices, anomaly alerts, and
+forecast-informed dosing recommendations**; **a human authorizes every dose.**
+TGF is **not** wired to dosing hardware — the closed-loop controller is validated
+in **backtest only** (5,614 historical water-analysis records from DCM Shriram
+Alkali), and autonomous actuation is on the roadmap. TGF depends on
+[cooling-tower-chem](https://github.com/Madhvansh/cooling-tower-chem) for its
+water-chemistry indices.
+
+## Deployment verification
+
+Two deployment-confirmation letters, both dated 21 July 2026 and obtained at the
+maintainer's request, document the DCM Shriram Alkali deployment (four cooling
+towers, self-hosted at the plant since June 2026). The letters describe TGF's use
+for monitoring and analysis of tower operations; statements elsewhere in this
+README about dosing recommendations, and about the Atul Ltd deployment (four
+further towers), are the maintainer's own and are not covered by these letters.
+
+- [Letter from HydroTech Services, Vapi — the supplier that provided TGF to the plant; signed by its proprietor](docs/deployment/2026-07-21-hydrotech-services-supplier-letter.pdf). (The centered header line "DCM SIGNED CONFIRMATION" appears in the letter as issued; it is not a DCM document — this letter is HydroTech's own.)
+- [Letter from DCM Shriram Alkali — company-level, unsigned (titles only, no individual names)](docs/deployment/2026-07-21-dcm-shriram-alkali-company-letter.pdf). DCM has told the maintainer that its policy does not permit naming employees or the site on public documents.
+
+To verify directly: contact the maintainer (choksimac167005@gmail.com), who will
+put evaluators in touch with the plant's utility head and plant manager; they
+have agreed to confirm the deployment on request.
 
 ## Production use
 
 - **Where:** eight industrial cooling towers across two Indian plants (DCM Shriram Alkali and Atul Ltd), named with the operators' permission.
-- **Since:** 2025. TGF was developed against these plants' water-analysis data and open-sourced in 2026.
+- **Since:** 2025, in three phases -- (1) 2025: remote, maintainer-operated advisory, with the maintainer running TGF on incoming plant data and plant teams acting on its outputs; (2) June 2026: self-hosted on-site at DCM Shriram Alkali (four towers), running without maintainer involvement; (3) Atul Ltd (four further towers), which continues on the same advisory basis and is maintainer-attested. TGF was developed against these plants' water-analysis data and open-sourced in 2026.
+- **Verification:** deployment-confirmation letters document the DCM Shriram Alkali deployment -- see [Deployment verification](#deployment-verification).
 - **Mode:** advisory / decision support. Plant teams run TGF's analysis on tower water data and act on its outputs -- LSI/RSI scaling-corrosion risk assessment, anomaly alerts, and forecast-informed dosing recommendations. Humans stay in the loop for every dose.
 - **Boundary (stated plainly):** TGF has not yet been connected to dosing hardware. The closed-loop controller exists and is validated in backtest below; wiring it to pumps on real towers is the roadmap, not the present.
 

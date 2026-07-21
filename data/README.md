@@ -44,7 +44,9 @@ populated `Date`) for quick testing.
 Consolidated from ~80 monthly cooling-tower water-analysis report sheets (Excel)
 from **DCM Shriram Alkali** facilities. Reports span
 several towers — including Main Plant CWT, Power Plant CWT, New Plant (X-01 CT),
-850 CT TPD, ECH CT, and OLD/NEW CT units. The `Source_Sheet` column preserves the
+850 CT TPD, ECH CT, and OLD/NEW CT units (the historical archive spans more tower
+units and sites than the current live deployment, which covers four towers at one
+plant). The `Source_Sheet` column preserves the
 originating report for every row.
 
 ## File integrity (SHA-256)
