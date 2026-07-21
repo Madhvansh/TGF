@@ -54,6 +54,10 @@ load-bearing README claim to a checkable artifact.
 ![License](https://img.shields.io/badge/license-Apache%202.0-green)
 ![Platform](https://img.shields.io/badge/platform-Linux%20%7C%20RPi%20%7C%20Windows-lightgrey)
 
+## Try it
+
+**[Try the live demo →](https://madhvansh.github.io/TGF/demo/)** — every TGF component on a simulated tower, no install, no login.
+
 ## The Problem
 
 India's cooling towers lose 2--5% of operational capacity annually to scaling, corrosion, and biofouling. Manual operators test water 2--3 times per day and react to problems *after* they appear, wasting 15--25% of chemicals through over-dosing. A single unplanned shutdown from scaling or corrosion costs $50K--$200K. The industry charges $50K--$200K/year for automation -- TGF targets $20K/year total cost.
