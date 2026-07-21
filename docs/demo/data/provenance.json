@@ -1,0 +1,23 @@
+{
+  "generated": "2026-07-21",
+  "repo_commit": "d225a417e16cc643355091bb99dc6cdbe9e9d98d",
+  "python": "3.12.10",
+  "package_versions": {
+    "numpy": "2.5.1",
+    "pandas": "3.0.3",
+    "scipy": "1.18.0",
+    "scikit-learn": "1.9.0",
+    "statsmodels": "0.14.6",
+    "torch": "2.13.0+cpu",
+    "transformers": "5.14.1",
+    "chronos-forecasting": "2.3.1",
+    "momentfm": null
+  },
+  "what_ran": {
+    "forecast": "chronos-t5-small",
+    "anomalies": "TGF statistical anomaly detector",
+    "indices": "TGF physics engine (vendored cooling-tower-chem formulas)",
+    "controller": "TGF MPC optimizer + safety layer"
+  },
+  "regenerate": "python docs/demo/generate_data.py"
+}
