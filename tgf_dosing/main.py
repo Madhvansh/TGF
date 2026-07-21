@@ -102,7 +102,7 @@ class TGFApplication:
         self.api_port = api_port
         
         logger.info("=" * 60)
-        logger.info("  TGF AUTONOMOUS COOLING TOWER CONTROL")
+        logger.info("  TGF ADVISORY COOLING TOWER DOSING - human-authorized")
         logger.info("  AI-Driven Predictive Dosing System")
         logger.info("=" * 60)
         logger.info(f"  Tower: {self.tower.name}")
@@ -272,7 +272,7 @@ class TGFApplication:
         # System startup alert
         self.alert_manager.system_alert(
             "System Starting",
-            f"TGF autonomous control starting. "
+            f"TGF advisory dosing run starting. "
             f"Tower: {self.tower.name}, "
             f"Readings: {self.ingestion.total_readings}",
             severity="INFO"
@@ -365,7 +365,7 @@ class TGFApplication:
                     "orp": reading.orp,
                 })
                 # Blend: if online detector flags anomaly that statistical missed,
-                # take the higher score (conservative for autonomous dosing)
+                # take the higher score (conservative for advisory dosing)
                 if online_score > 0.5 and anomaly_report.system_score < 0.3:
                     anomaly_report.system_score = max(
                         anomaly_report.system_score,
@@ -764,7 +764,7 @@ class TGFApplication:
 def print_report(report: dict):
     """Print formatted final report."""
     print("\n" + "=" * 70)
-    print("  TGF AUTONOMOUS CONTROL — SIMULATION REPORT")
+    print("  TGF ADVISORY DOSING — SIMULATION REPORT")
     print("=" * 70)
     
     sim = report["simulation"]

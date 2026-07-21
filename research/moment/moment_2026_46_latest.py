@@ -1,5 +1,5 @@
 """
-MOMENT-TGF: Pre-trained Time-Series Foundation Model for Autonomous Cooling Tower
+MOMENT-TGF: Pre-trained Time-Series Foundation Model for Advisory Cooling Tower
 Water Treatment Anomaly Detection
 
 Strictly follows: "MOMENT: A Family of Open Time-series Foundation Models"
@@ -20,7 +20,7 @@ independently along batch dimension.
 Anomaly Detection (Section F.3, Table 7): Reconstruction-based -- MSE between observed
 and predicted time series used as anomaly criterion, with window size=512.
 
-Tailored for TGF (Autonomous Cooling Tower Water Treatment):
+Tailored for TGF (Advisory Cooling Tower Water Treatment):
     - 17 water quality parameters from Parameters_5K.csv
     - Domain-specific parameter ranges and severity scoring
     - POT/mPOT adaptive thresholding for production deployment
@@ -2188,7 +2188,7 @@ def run_pipeline(config: MOMENTConfig):
     set_seed(config.seed)
 
     logger.info("=" * 80)
-    logger.info("MOMENT-TGF: Autonomous Cooling Tower Water Treatment")
+    logger.info("MOMENT-TGF: Advisory Cooling Tower Water Treatment")
     logger.info("=" * 80)
     logger.info(f"Mode: {config.finetune_mode}")
     logger.info(f"Device: {config.device}")
