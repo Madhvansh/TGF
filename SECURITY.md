@@ -28,6 +28,6 @@ include:
 - steps to reproduce or a proof of concept,
 - the affected components, and any known mitigations or workarounds.
 
-You can expect an acknowledgement of your report within a reasonable period. Please
+You can expect an acknowledgement of your report within 14 days. Please
 allow time for a fix to be prepared before any public disclosure, and coordinate the
 disclosure timing with the maintainer.
