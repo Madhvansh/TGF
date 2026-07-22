@@ -63,22 +63,23 @@ OUT_DIR = os.path.join(HERE, "data")
 # operating limits and chemical program where those exist; the circulating-
 # mineral bands are illustrative ranges around the makeup-water design point.
 PARAMS = {
-    "ph":              {"label": "pH",                     "unit": "",           "band": [LIMITS.ph_min, LIMITS.ph_max],          "decimals": 2},
-    "conductivity":    {"label": "Conductivity",           "unit": "µS/cm",      "band": [round(TOWER.makeup_conductivity_us * LIMITS.coc_min), round(TOWER.makeup_conductivity_us * LIMITS.coc_max)], "decimals": 0},
-    "temperature":     {"label": "Temperature",            "unit": "°C",         "band": [20.0, LIMITS.temperature_max_c],        "decimals": 1},
-    "orp":             {"label": "ORP",                    "unit": "mV",         "band": [LIMITS.orp_min_mv, LIMITS.orp_max_mv],  "decimals": 0},
-    "inhibitor":       {"label": "Inhibitor residual",     "unit": "ppm",        "band": [TOWER.chemicals[INHIBITOR].min_ppm, TOWER.chemicals[INHIBITOR].max_ppm], "decimals": 1},
-    "coc":             {"label": "Cycles of concentration","unit": "",           "band": [LIMITS.coc_min, LIMITS.coc_max],        "decimals": 2},
-    "makeup_hardness": {"label": "Makeup hardness",        "unit": "ppm CaCO₃",  "band": [60, 180],                               "decimals": 0},
-    "alkalinity":      {"label": "Alkalinity",             "unit": "ppm CaCO₃",  "band": [100, 500],                              "decimals": 0},
-    "calcium":         {"label": "Calcium hardness",       "unit": "ppm CaCO₃",  "band": [150, 550],                              "decimals": 0},
-    "chlorides":       {"label": "Chlorides",              "unit": "ppm",        "band": [80, 500],                               "decimals": 0},
+    "ph":              {"label": "pH",                     "unit": "",           "band": [LIMITS.ph_min, LIMITS.ph_max],          "decimals": 2, "kind": "live"},
+    "conductivity":    {"label": "Conductivity",           "unit": "µS/cm",      "band": [round(TOWER.makeup_conductivity_us * LIMITS.coc_min), round(TOWER.makeup_conductivity_us * LIMITS.coc_max)], "decimals": 0, "kind": "live"},
+    "temperature":     {"label": "Temperature",            "unit": "°C",         "band": [20.0, LIMITS.temperature_max_c],        "decimals": 1, "kind": "live"},
+    "orp":             {"label": "ORP",                    "unit": "mV",         "band": [LIMITS.orp_min_mv, LIMITS.orp_max_mv],  "decimals": 0, "kind": "live"},
+    "inhibitor":       {"label": "Inhibitor residual",     "unit": "ppm",        "band": [TOWER.chemicals[INHIBITOR].min_ppm, TOWER.chemicals[INHIBITOR].max_ppm], "decimals": 1, "kind": "estimated"},
+    "coc":             {"label": "Cycles of concentration","unit": "",           "band": [LIMITS.coc_min, LIMITS.coc_max],        "decimals": 2, "kind": "estimated"},
+    "makeup_hardness": {"label": "Makeup hardness",        "unit": "ppm CaCO₃",  "band": [60, 180],                               "decimals": 0, "kind": "estimated"},
+    "makeup_conductivity": {"label": "Makeup conductivity","unit": "µS/cm",      "band": [280, 480],                              "decimals": 0, "kind": "estimated"},
+    "alkalinity":      {"label": "Alkalinity",             "unit": "ppm CaCO₃",  "band": [100, 500],                              "decimals": 0, "kind": "estimated"},
+    "calcium":         {"label": "Calcium hardness",       "unit": "ppm CaCO₃",  "band": [150, 550],                              "decimals": 0, "kind": "estimated"},
+    "chlorides":       {"label": "Chlorides",              "unit": "ppm",        "band": [80, 500],                               "decimals": 0, "kind": "estimated"},
 }
 
 SCENARIOS = {
     "baseline": {
         "title": "Baseline steady state",
-        "subtitle": "Steady operation; indices mid-band; a small maintenance dose",
+        "subtitle": "Steady operation; indices mid-band; routine maintenance dosing",
         "seed": 11,
     },
     "scaling": {
@@ -132,9 +133,9 @@ def build_drivers(scenario: str, rng: np.random.Generator) -> dict:
     diurnal = np.sin(2 * np.pi * (h - 8) / 24.0)
 
     temperature = 31.5 + 3.0 * diurnal + rng.normal(0, 0.18, HOURS)
-    ph = 7.75 + 0.06 * np.sin(2 * np.pi * (h - 10) / 24.0) + rng.normal(0, 0.008, HOURS)
+    ph = 7.52 + 0.06 * np.sin(2 * np.pi * (h - 10) / 24.0) + rng.normal(0, 0.008, HOURS)
     orp = 660.0 + 15.0 * np.sin(2 * np.pi * (h - 14) / 24.0) - 10.0 * np.abs(np.sin(np.pi * h / 84.0)) + rng.normal(0, 3, HOURS)
-    conductivity = 1460.0 + 25.0 * np.sin(2 * np.pi * h / 24.0) + rng.normal(0, 7, HOURS)
+    conductivity = 1340.0 + 25.0 * np.sin(2 * np.pi * h / 24.0) + rng.normal(0, 7, HOURS)
 
     makeup_hardness = np.full(HOURS, TOWER.makeup_hardness_ppm)
     makeup_calcium = np.full(HOURS, TOWER.makeup_calcium_ppm)
@@ -151,11 +152,11 @@ def build_drivers(scenario: str, rng: np.random.Generator) -> dict:
     elif scenario == "makeup":
         # Day-2 switch to softer, low-alkalinity, higher-chloride makeup water.
         shift = np.clip((h - 48) / 6.0, 0.0, 1.0)
-        makeup_calcium = TOWER.makeup_calcium_ppm - 42.0 * shift
-        makeup_alkalinity = TOWER.makeup_alkalinity_ppm - 58.0 * shift
+        makeup_calcium = TOWER.makeup_calcium_ppm - 48.0 * shift
+        makeup_alkalinity = TOWER.makeup_alkalinity_ppm - 72.0 * shift
         makeup_chlorides = 45.0 + 80.0 * shift
         makeup_conductivity = TOWER.makeup_conductivity_us - 40.0 * shift
-        ph = ph - 0.32 * shift                          # weaker buffering pulls pH down
+        ph = ph - 0.34 * shift                          # weaker buffering pulls pH down
 
     elif scenario == "fault":
         # pH probe sticks flat on day 6, then reads a dropout code the rest of the run.
@@ -349,6 +350,278 @@ def round_series(values, decimals):
 
 
 # ---------------------------------------------------------------------------
+# v2 blocks — forecast anchors, radar scores, distributions, correlation,
+# lab panel, dosing timeline, and the simulated operations layer
+# ---------------------------------------------------------------------------
+
+ANCHORS_H = list(range(48, HOURS + 1, 12))     # 24 h forecasts re-run every 12 h
+
+LAB_PARAMS = {
+    "total_hardness":     {"label": "Total hardness",     "unit": "ppm CaCO₃", "band": [250, 900],  "decimals": 0, "kind": "lab"},
+    "magnesium_hardness": {"label": "Magnesium hardness", "unit": "ppm CaCO₃", "band": [80, 350],   "decimals": 0, "kind": "lab"},
+    "silica":             {"label": "Silica",             "unit": "ppm SiO₂",  "band": [30, 150],   "decimals": 1, "kind": "lab"},
+    "iron":               {"label": "Iron",               "unit": "ppm Fe",    "band": [0.0, 1.0],  "decimals": 2, "kind": "lab"},
+    "sulfate":            {"label": "Sulphate",           "unit": "ppm",       "band": [100, 900],  "decimals": 0, "kind": "lab"},
+    "ortho_phosphate":    {"label": "Ortho phosphate",    "unit": "ppm PO₄",   "band": [4.0, 12.0], "decimals": 2, "kind": "lab"},
+    "total_phosphate":    {"label": "Total phosphate",    "unit": "ppm PO₄",   "band": [5.0, 15.0], "decimals": 2, "kind": "lab"},
+    "tss":                {"label": "Suspended solids",   "unit": "ppm",       "band": [0, 40],     "decimals": 0, "kind": "lab"},
+    "turbidity":          {"label": "Turbidity",          "unit": "NTU",       "band": [0.0, 15.0], "decimals": 1, "kind": "lab"},
+}
+
+LAB_STEP_H = 12
+
+RADAR_AXES = [
+    {"key": "scaling_margin",     "label": "Scaling margin",
+     "formula": "100 · clip((1.0 − LSI) / 1.5, 0, 1) — distance of LSI below the +1.0 scaling threshold"},
+    {"key": "corrosion_margin",   "label": "Corrosion margin",
+     "formula": "100 · min(clip((LSI + 0.5) / 1.0, 0, 1), clip((7.5 − RSI) / 1.5, 0, 1)) — LSI above −0.5 and RSI below 7.5"},
+    {"key": "inhibitor_adequacy", "label": "Inhibitor adequacy",
+     "formula": "100 · clip((residual − band lo) / (target − band lo), 0, 1) against the chemical program band"},
+    {"key": "data_health",        "label": "Data health",
+     "formula": "100 − 60·(sensor fault active) − 12·(anomaly episodes in prior 24 h), floored at 0"},
+    {"key": "safety_headroom",    "label": "Safety headroom",
+     "formula": "0 if dosing held, else 100 · (1 − inhibitor dosed in prior 24 h / daily cap)"},
+    {"key": "forecast_margin",    "label": "Forecast margin",
+     "formula": "100 · clip((band hi − conductivity q90 at +24 h) / (0.15 · band hi), 0, 1); 50 when the forecast is suppressed"},
+]
+
+
+def clip01(x):
+    return max(0.0, min(1.0, float(x)))
+
+
+def build_anchor_forecasts(forecaster, drivers, inhib_s, use_chronos, seed):
+    """Re-run the 24 h forecast at every 12 h anchor across the window, from the
+    data available up to that hour only. For the fault drill, the pH forecast is
+    suppressed at anchors whose recent context includes the faulted probe —
+    forecasting on bad input would be worse than admitting the gap."""
+    anchors = []
+    sources = {
+        "conductivity": ("conductivity", np.asarray(drivers["conductivity"], dtype=float)),
+        "ph":           ("pH",           np.asarray(drivers["ph"], dtype=float)),
+        "inhibitor":    ("inhibitor",    np.asarray(inhib_s, dtype=float)),
+    }
+    for k, a in enumerate(ANCHORS_H):
+        params_out = {}
+        for key, (pname, arr) in sources.items():
+            ctx = arr[:a]
+            dec = PARAMS[key]["decimals"]
+            entry = {"t": [iso(x) for x in timestamps(HORIZON_H, offset_h=a)]}
+            faulted = bool(key == "ph" and np.any(ctx[max(0, a - 24):a] <= 3.0))
+            if faulted:
+                entry["suppressed"] = True
+                entry["note"] = "forecast suppressed — input sensor faulted"
+            else:
+                seed_k = seed if a == HOURS else seed * 1000 + k
+                pf = forecast_param(forecaster, ctx, pname, HORIZONS, use_chronos,
+                                    seed_k)
+                entry["q50"] = [rnd(pf.at_horizon(hz).p50, dec) for hz in HORIZONS]
+                entry["q10"] = [rnd(pf.at_horizon(hz).p10, dec) for hz in HORIZONS]
+                entry["q90"] = [rnd(pf.at_horizon(hz).p90, dec) for hz in HORIZONS]
+            params_out[key] = entry
+        anchors.append({"h": a, "t": iso(timestamps(1, offset_h=a - 1)[0]),
+                        "params": params_out})
+    return anchors
+
+
+def build_radar(anchors, lsi_s, rsi_s, inhib_s, cum24_s, blocked_s, anomalies):
+    """Six 0–100 axis scores at every forecast anchor; the formulas live in
+    RADAR_AXES and are shown verbatim on the page."""
+    inhib_band = PARAMS["inhibitor"]["band"]
+    target = TOWER.chemicals[INHIBITOR].target_ppm
+    cap = TOWER.chemicals[INHIBITOR].max_dose_rate_kg_per_hr * 24.0
+    cond_hi = PARAMS["conductivity"]["band"][1]
+    anom_ts = [datetime.strptime(a["t"], "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc).timestamp()
+               for a in anomalies]
+    scores = {ax["key"]: [] for ax in RADAR_AXES}
+    for anchor in anchors:
+        i = anchor["h"] - 1
+        lsi, rsi = lsi_s[i], rsi_s[i]
+        t_anchor = START.timestamp() + anchor["h"] * 3600.0
+        n_anom = sum(1 for t in anom_ts if t_anchor - 86400.0 < t <= t_anchor)
+        fault_active = bool(blocked_s[i])
+        scores["scaling_margin"].append(rnd(100.0 * clip01((1.0 - lsi) / 1.5), 1))
+        scores["corrosion_margin"].append(rnd(100.0 * min(clip01((lsi + 0.5) / 1.0),
+                                                          clip01((7.5 - rsi) / 1.5)), 1))
+        scores["inhibitor_adequacy"].append(rnd(100.0 * clip01((inhib_s[i] - inhib_band[0]) /
+                                                               max(target - inhib_band[0], 0.1)), 1))
+        scores["data_health"].append(rnd(max(0.0, 100.0 - (60.0 if fault_active else 0.0)
+                                             - 12.0 * n_anom), 1))
+        scores["safety_headroom"].append(rnd(0.0 if fault_active else
+                                             100.0 * clip01(1.0 - cum24_s[i] / max(cap, 1e-9)), 1))
+        fc = anchor["params"]["conductivity"]
+        if fc.get("suppressed"):
+            scores["forecast_margin"].append(50.0)
+        else:
+            q90_end = fc["q90"][-1]
+            scores["forecast_margin"].append(rnd(100.0 * clip01((cond_hi - q90_end) /
+                                                                (0.15 * cond_hi)), 1))
+    return {"axes": RADAR_AXES, "anchors_h": [a["h"] for a in anchors], "scores": scores,
+            "provenance": "axis scores computed from the simulated run by generate_data.py; formulas shown per axis"}
+
+
+def build_distributions(series):
+    """Quantile pack + 24-bin histogram per hourly parameter over the window."""
+    out = {}
+    for key in PARAMS:
+        vals = np.asarray(series[key], dtype=float)
+        vals = vals[np.isfinite(vals)]
+        q1, med, q3 = np.percentile(vals, [25, 50, 75])
+        iqr = q3 - q1
+        counts, edges = np.histogram(vals, bins=24)
+        d = PARAMS[key]["decimals"]
+        out[key] = {
+            "min": rnd(vals.min(), d), "q1": rnd(q1, d), "median": rnd(med, d),
+            "mean": rnd(vals.mean(), d), "q3": rnd(q3, d), "max": rnd(vals.max(), d),
+            "fence_lo": rnd(q1 - 1.5 * iqr, d), "fence_hi": rnd(q3 + 1.5 * iqr, d),
+            "hist": {"edges": [rnd(e, d if d > 0 else 1) for e in edges],
+                     "counts": [int(c) for c in counts]},
+        }
+    return out
+
+
+def build_correlation(series):
+    # Makeup-side series are near-constant in most scenarios; excluding them
+    # keeps the matrix free of zero-variance artifacts.
+    keys = [k for k in PARAMS if not k.startswith("makeup")]
+    mat = np.corrcoef(np.vstack([np.asarray(series[k], dtype=float) for k in keys]))
+    return {"params": keys, "n": HOURS, "window": "7 days, hourly",
+            "matrix": [[rnd(v, 3) for v in row] for row in mat],
+            "note": "Pearson correlation over the simulated hourly series; the fault drill's pH column includes the stuck/dropout readings on purpose."}
+
+
+def build_lab_panel(sid, minerals, seed):
+    """Slow lab-cadence chemistry, sampled every 12 h, tracking the loop's
+    cycles of concentration so the panel stays consistent with the sensors."""
+    rng = np.random.default_rng(seed + 5000)
+    idx = list(range(0, HOURS, LAB_STEP_H))
+    coc = minerals["coc"]
+    ca = minerals["calcium"]
+    out = {k: [] for k in LAB_PARAMS}
+    for i in idx:
+        c = float(coc[i])
+        mg = 62.0 * c
+        vals = {
+            "total_hardness": float(ca[i]) + mg,
+            "magnesium_hardness": mg,
+            "silica": 16.0 * c * (1.06 if sid == "scaling" else 1.0),
+            "iron": 0.12 + 0.045 * c,
+            "sulfate": (52.0 + (34.0 if sid == "makeup" and i >= 48 else 0.0)) * c,
+            "ortho_phosphate": 5.6 + 0.5 * math.sin(i / 29.0),
+            "total_phosphate": 7.5 + 0.5 * math.sin(i / 29.0),
+            "tss": 6.0 + 2.2 * c + (3.0 if sid == "scaling" and i >= 96 else 0.0),
+            "turbidity": 1.6 + 0.5 * c + (0.8 if sid == "scaling" and i >= 96 else 0.0),
+        }
+        for k, v in vals.items():
+            noisy = v * (1.0 + rng.normal(0, 0.012))
+            out[k].append(rnd(noisy, LAB_PARAMS[k]["decimals"]))
+    return {
+        "t": [iso(START.timestamp() + i * 3600.0) for i in idx],
+        "params": LAB_PARAMS,
+        "values": out,
+        "provenance": "synthetic lab panel (seeded), sampled every 12 h — presented as manually entered lab results",
+    }
+
+
+def build_biocide_slugs():
+    """Twice-weekly oxidizing-biocide slug windows (illustrative schedule)."""
+    slugs = []
+    for day, hour in ((1, 10), (4, 10)):           # Tue/Fri of week 1 pattern
+        for week in (0, 1):
+            h = (day + 7 * week) * 24 + hour
+            if h < HOURS:
+                slugs.append({"start_h": h, "hours": 2,
+                              "t": iso(START.timestamp() + h * 3600.0)})
+    return slugs
+
+
+def build_ops(sid, timeline_kg, blocked_s, bd_s, alerts, lab, seed):
+    """Simulated operations layer: pump tiles, inventory drawdown, operator log.
+    Everything here derives from the dosing timeline and the seeded schedule and
+    is labeled simulated on the page."""
+    slugs = build_biocide_slugs()
+    slug_use_kg = 1.6
+
+    inhib_cum = np.cumsum(np.asarray(timeline_kg, dtype=float))
+    # Size the starting stocks off the window's own usage so the drawdown and
+    # days-left read like a plausibly provisioned chemical store (~2 weeks
+    # inhibitor, ~1 week biocide remaining at the end of the window).
+    inhib_stock0 = float(math.ceil(float(inhib_cum[-1]) * 3.0 / 10.0) * 10.0)
+    biocide_stock0 = 12.0
+    daily_idx = list(range(0, HOURS, 24)) + [HOURS - 1]
+    biocide_used_by = lambda h: slug_use_kg * sum(1 for s in slugs if s["start_h"] <= h)
+
+    stock_series = {
+        "t": [iso(START.timestamp() + i * 3600.0) for i in daily_idx],
+        "inhibitor": [rnd(inhib_stock0 - inhib_cum[i], 1) for i in daily_idx],
+        "biocide": [rnd(biocide_stock0 - biocide_used_by(i), 1) for i in daily_idx],
+    }
+    used_inhib = float(inhib_cum[-1])
+    used_bio = biocide_used_by(HOURS)
+    avg_daily_inhib = used_inhib / (HOURS / 24.0)
+    avg_daily_bio = used_bio / (HOURS / 24.0)
+    inventory = [
+        {"chemical": "scale/corrosion inhibitor", "stock_start_kg": inhib_stock0,
+         "used_kg": rnd(used_inhib, 1),
+         "days_left": rnd((inhib_stock0 - used_inhib) / max(avg_daily_inhib, 1e-6), 1),
+         "basis": "average simulated use over the window"},
+        {"chemical": "oxidizing biocide", "stock_start_kg": biocide_stock0,
+         "used_kg": rnd(used_bio, 1),
+         "days_left": rnd((biocide_stock0 - used_bio) / max(avg_daily_bio, 1e-6), 1),
+         "basis": "slug schedule, twice weekly"},
+    ]
+
+    rng = np.random.default_rng(seed + 9000)
+    log = []
+    for i, t in enumerate(lab["t"]):
+        if i % 2 == 0:
+            log.append({"t": t, "text": "Lab panel results entered", "source": "seeded"})
+    for a in alerts[:3]:
+        if a.get("resolved_t"):
+            log.append({"t": a["resolved_t"], "text": f"Alert reviewed — {a['text']}",
+                        "source": "seeded"})
+    for s in slugs:
+        log.append({"t": s["t"], "text": "Oxidizing biocide slug window started (schedule)",
+                    "source": "seeded"})
+    log.sort(key=lambda e: e["t"])
+
+    pumps = [
+        {"id": "pump_inhibitor", "label": "Inhibitor metering pump",
+         "chemical": "scale/corrosion inhibitor", "drive": "timeline"},
+        {"id": "pump_biocide", "label": "Biocide slug pump",
+         "chemical": "oxidizing biocide", "drive": "slugs"},
+        {"id": "valve_blowdown", "label": "Blowdown valve",
+         "chemical": None, "drive": "blowdown"},
+    ]
+    return {
+        "pumps": pumps,
+        "biocide_slugs": slugs,
+        "blowdown_open": round_series(np.asarray(bd_s) / max(float(np.max(bd_s)), 1e-9), 3),
+        "inventory": inventory,
+        "inventory_stock_series": stock_series,
+        "operator_log": log,
+        "provenance": "operations layer simulated for the demo — pump, inventory and log entries derive from the dosing timeline and a seeded schedule",
+    }
+
+
+def resolve_alert_lifecycles(alerts, series):
+    """Attach a resolved_t to alerts whose condition demonstrably clears within
+    the window; ongoing alerts keep resolved_t = None."""
+    tlist = series["t"]
+    cond = series["conductivity"]
+    cond_hi = PARAMS["conductivity"]["band"][1]
+    for a in alerts:
+        a["resolved_t"] = None
+        if a["source"] == "threshold" and a["text"].startswith("Conductivity"):
+            start = tlist.index(a["t"]) if a["t"] in tlist else 0
+            for j in range(start + 1, len(cond)):
+                if cond[j] <= cond_hi:
+                    a["resolved_t"] = tlist[j]
+                    break
+    return alerts
+
+
+# ---------------------------------------------------------------------------
 # One scenario end to end
 # ---------------------------------------------------------------------------
 
@@ -369,9 +642,11 @@ def build_scenario(sid: str, meta: dict, use_chronos: bool, chronos_label: str):
     detector = AnomalyDetector(window_size=288, warmup_cycles=24, sensitivity=1.0)
 
     lsi_s, rsi_s, psi_s, inhib_s = [], [], [], []
+    timeline_kg, timeline_ml, blocked_s, cum24_s, bd_s = [], [], [], [], []
     anomaly_reports = []
     prev_doses = {}
     last = {}
+    inhib_chem_ref = TOWER.chemicals[INHIBITOR]
 
     for i in range(HOURS):
         ph = float(drivers["ph"][i])
@@ -427,24 +702,24 @@ def build_scenario(sid: str, meta: dict, use_chronos: bool, chronos_label: str):
         for n, kg in safe_decision.slug_doses.items():
             prev_doses[n] = prev_doses.get(n, 0.0) + kg
 
+        # Hourly dosing timeline for the console's playback and Advisor views.
+        kg_i = 0.0 if report.emergency_stop else float(safe_decision.continuous_doses_kg.get(INHIBITOR, 0.0))
+        timeline_kg.append(kg_i)
+        timeline_ml.append(kg_i / inhib_chem_ref.density_kg_per_liter * 1000.0 / 60.0)
+        blocked_s.append(bool(report.emergency_stop))
+        cum24_s.append(float(snap.chemicals[INHIBITOR].cumulative_24h_kg))
+        bd_s.append(float(bd))
+
         if i == HOURS - 1:
             last = {"wc": wc, "risk": risk, "residuals": residuals, "snap": snap,
                     "coc": coc, "cond": cond, "ph": ph, "temp": temp, "phs": phs,
                     "ts": ts[i], "safe": safe_decision, "report": report, "pfs": pfs}
 
-    # --- Forecast section for the page (conductivity, pH, inhibitor) ---------
-    pfs = last["pfs"]
-    fts = [iso(x) for x in timestamps(HORIZON_H, offset_h=HOURS)]
-    forecast_out = {}
-    for key in ("conductivity", "ph", "inhibitor"):
-        pf = pfs[key]
-        dec = PARAMS[key]["decimals"]
-        forecast_out[key] = {
-            "t": fts,
-            "q50": [rnd(pf.at_horizon(hz).p50, dec) for hz in HORIZONS],
-            "q10": [rnd(pf.at_horizon(hz).p10, dec) for hz in HORIZONS],
-            "q90": [rnd(pf.at_horizon(hz).p90, dec) for hz in HORIZONS],
-        }
+    # --- Forecasts for the page: 24 h cones re-anchored every 12 h -----------
+    # The final anchor reuses the loop's seed and context, so the cone shown at
+    # "now" is exactly the forecast the controller acted on.
+    anchors = build_anchor_forecasts(forecaster, drivers, inhib_s, use_chronos, meta["seed"])
+    forecast_out = {key: dict(entry) for key, entry in anchors[-1]["params"].items()}
 
     # --- Recommendation + safety trace (decision taken in the loop at "now") -
     safe = last["safe"]
@@ -524,9 +799,32 @@ def build_scenario(sid: str, meta: dict, use_chronos: bool, chronos_label: str):
     series["inhibitor"] = round_series(inhib_s, PARAMS["inhibitor"]["decimals"])
     series["coc"] = round_series(minerals["coc"], PARAMS["coc"]["decimals"])
     series["makeup_hardness"] = round_series(drivers["makeup_hardness"], PARAMS["makeup_hardness"]["decimals"])
+    series["makeup_conductivity"] = round_series(drivers["makeup_conductivity"], PARAMS["makeup_conductivity"]["decimals"])
     series["alkalinity"] = round_series(minerals["alkalinity"], PARAMS["alkalinity"]["decimals"])
     series["calcium"] = round_series(minerals["calcium"], PARAMS["calcium"]["decimals"])
     series["chlorides"] = round_series(minerals["chlorides"], PARAMS["chlorides"]["decimals"])
+
+    # --- v2 console blocks ---------------------------------------------------
+    alerts = resolve_alert_lifecycles(alerts, series)
+    lab = build_lab_panel(sid, minerals, meta["seed"])
+    radar = build_radar(anchors, lsi_s, rsi_s, inhib_s, cum24_s, blocked_s, anomalies)
+    distributions = build_distributions(series)
+    correlation = build_correlation(series)
+    ops = build_ops(sid, timeline_kg, blocked_s, bd_s, alerts, lab, meta["seed"])
+    timeline = {
+        "t": series["t"],
+        "dose_ml_min": round_series(timeline_ml, 2),
+        "blocked": [int(b) for b in blocked_s],
+        "cum24_kg": round_series(cum24_s, 2),
+        "daily_cap_kg": rnd(inhib_chem_ref.max_dose_rate_kg_per_hr * 24.0, 1),
+        "pump_max_ml_min": rnd(inhib_chem_ref.max_dose_rate_kg_per_hr / inhib_chem_ref.density_kg_per_liter * 1000.0 / 60.0, 1),
+        "provenance": "TGF MPC optimizer + safety layer evaluated hourly in the offline run",
+    }
+    sensor_fault = None
+    if sid == "fault":
+        sensor_fault = {"param": "ph",
+                        "stuck_from": iso(ts[144]),
+                        "dropout_from": iso(ts[150])}
 
     doc = {
         "meta": {
@@ -534,7 +832,11 @@ def build_scenario(sid: str, meta: dict, use_chronos: bool, chronos_label: str):
             "title": meta["title"],
             "subtitle": meta["subtitle"],
             "seed": meta["seed"],
+            "schema": 2,
+            "app": "TGF Console",
             "generated": GENERATED,
+            "sim_start": series["t"][0],
+            "sim_end": series["t"][-1],
             "tower": "representative mid-size industrial cooling tower (simulated)",
             "provenance_page": "All series simulated; see per-series provenance.",
         },
@@ -553,12 +855,21 @@ def build_scenario(sid: str, meta: dict, use_chronos: bool, chronos_label: str):
         "forecast": {
             "horizon_h": HORIZON_H,
             "params": forecast_out,
+            "anchors": anchors,
+            "anchor_step_h": 12,
             "provenance": chronos_label,
         },
         "anomalies": anomalies,
         "anomalies_provenance": anomalies_provenance,
         "recommendation": recommendation,
         "alerts": alerts,
+        "lab": lab,
+        "timeline": timeline,
+        "radar": radar,
+        "distributions": distributions,
+        "correlation": correlation,
+        "ops": ops,
+        "sensor_fault": sensor_fault,
     }
     return doc
 
@@ -583,7 +894,7 @@ def build_rationale(sid, risk, forecast_out, last, blocked, dose_ml_min):
         bullets.append(f"Raising the scale/corrosion inhibitor to {dose_ml_min:.1f} mL/min restores the protective film.")
     else:  # baseline
         bullets.append(f"Indices sit mid-band (LSI {risk.lsi:+.2f}, RSI {risk.rsi:.1f}); the loop is stable.")
-        bullets.append(f"A small maintenance dose of {dose_ml_min:.1f} mL/min offsets normal inhibitor decay.")
+        bullets.append(f"A steady dose of {dose_ml_min:.1f} mL/min offsets normal inhibitor decay under load.")
         bullets.append("No forecast guideline crossing within the horizon.")
     return bullets
 
@@ -613,8 +924,10 @@ def build_safety_checks(report, safe, last, blocked):
          "detail": f"{cum_24h:.2f} kg dosed in last 24 h vs {daily_cap:.0f} kg cap",
          "pass": bool(cum_ok)},
         {"name": "Discharge interlock (CoC / CPCB pH)",
-         "detail": f"CoC {coc:.1f} within {LIMITS.coc_max:.0f} limit; discharge pH {ph:.1f} within CPCB range" if interlock_ok
-                   else "blowdown restricted to hold discharge quality",
+         "detail": (f"CoC {coc:.1f} within {LIMITS.coc_max:.0f} limit; discharge pH check deferred while the probe is faulted"
+                    if not sensor_ok else
+                    f"CoC {coc:.1f} within {LIMITS.coc_max:.0f} limit; discharge pH {ph:.1f} within CPCB range" if interlock_ok
+                    else "blowdown restricted to hold discharge quality"),
          "pass": bool(interlock_ok)},
     ]
 
@@ -717,6 +1030,9 @@ def main():
             "indices": "TGF physics engine (vendored cooling-tower-chem formulas)",
             "controller": "TGF MPC optimizer + safety layer",
         },
+        "forecast_anchors": "24 h forecasts recomputed every 12 h from hour 48; in the fault drill the pH cone is suppressed while the probe is faulted",
+        "radar_axes": {ax["key"]: ax["formula"] for ax in RADAR_AXES},
+        "ops_layer": "pump, inventory and operator-log entries are simulated for the demo and labeled as such",
         "regenerate": "python docs/demo/generate_data.py",
     }
     write_json(os.path.join(OUT_DIR, "provenance.json"), provenance)

@@ -1,6 +1,6 @@
 {
-  "generated": "2026-07-21",
-  "repo_commit": "d225a417e16cc643355091bb99dc6cdbe9e9d98d",
+  "generated": "2026-07-22",
+  "repo_commit": "3fa37c72dcdbca74e431c179e497f3a8e23c63ce",
   "python": "3.12.10",
   "package_versions": {
     "numpy": "2.5.1",
@@ -19,5 +19,15 @@
     "indices": "TGF physics engine (vendored cooling-tower-chem formulas)",
     "controller": "TGF MPC optimizer + safety layer"
   },
+  "forecast_anchors": "24 h forecasts recomputed every 12 h from hour 48; in the fault drill the pH cone is suppressed while the probe is faulted",
+  "radar_axes": {
+    "scaling_margin": "100 · clip((1.0 − LSI) / 1.5, 0, 1) — distance of LSI below the +1.0 scaling threshold",
+    "corrosion_margin": "100 · min(clip((LSI + 0.5) / 1.0, 0, 1), clip((7.5 − RSI) / 1.5, 0, 1)) — LSI above −0.5 and RSI below 7.5",
+    "inhibitor_adequacy": "100 · clip((residual − band lo) / (target − band lo), 0, 1) against the chemical program band",
+    "data_health": "100 − 60·(sensor fault active) − 12·(anomaly episodes in prior 24 h), floored at 0",
+    "safety_headroom": "0 if dosing held, else 100 · (1 − inhibitor dosed in prior 24 h / daily cap)",
+    "forecast_margin": "100 · clip((band hi − conductivity q90 at +24 h) / (0.15 · band hi), 0, 1); 50 when the forecast is suppressed"
+  },
+  "ops_layer": "pump, inventory and operator-log entries are simulated for the demo and labeled as such",
   "regenerate": "python docs/demo/generate_data.py"
 }
